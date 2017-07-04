@@ -12,6 +12,10 @@
     > JVM模块，测试Java以及其它基于JVM程序的应用
 * test-web        
     > Web模块，测试Web程序
+* test-algorithm
+    > 算法模块，算法实例
+* test-structure
+    > 数据结构模块，数据结构实例
     
 # LICENSE
 Apache License 2.0
