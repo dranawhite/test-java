@@ -8,40 +8,40 @@ package com.dranawhite.method;
  * @author dranawhite 2017/7/4
  * @version 1.0
  */
-public class StaticAssign {
+class StaticAssign {
 
     /**
      * @param subClass 子类
      */
-    public void parse(SubClass subClass) {
+    void parse(SubClass subClass) {
         System.out.println("SubClass invoke!");
     }
 
     /**
      * @param superClass 父类
      */
-    public void parse(SuperClass superClass) {
+    void parse(SuperClass superClass) {
         System.out.println("SuperClass invoke!");
     }
 
     /**
      * @param superInterface 接口
      */
-    public void parse(SuperInterface superInterface) {
+    void parse(SuperInterface superInterface) {
         System.out.println("SuperInterface invoke!");
     }
 
     /**
      * @param num 基本类型
      */
-    public void parse(int num) {
+    void parse(int num) {
         System.out.println("int invoke!");
     }
 
     /**
      * @param num 封装类型
      */
-    public void parse(Integer num) {
+    void parse(Integer num) {
         System.out.println("Integer invoke!");
     }
 

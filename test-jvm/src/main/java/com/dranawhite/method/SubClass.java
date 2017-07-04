@@ -4,7 +4,7 @@ package com.dranawhite.method;
  * @author dranawhite 2017/7/4
  * @version 1.0
  */
-public class SubClass extends SuperClass implements SuperInterface {
+class SubClass extends SuperClass implements SuperInterface {
 
     /**
      * 子类重写父类方法时，有关异常的处理：
@@ -16,7 +16,7 @@ public class SubClass extends SuperClass implements SuperInterface {
      * @param num   整型参数
      */
     @Override
-    public void assignMethod(String param, int num) {
+    void assignMethod(String param, int num) {
         throw new NullPointerException();
     }
 

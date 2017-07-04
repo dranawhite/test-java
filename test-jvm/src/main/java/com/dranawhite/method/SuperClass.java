@@ -4,7 +4,7 @@ package com.dranawhite.method;
  * @author dranawhite 2017/7/4
  * @version 1.0
  */
-public abstract class SuperClass {
+abstract class SuperClass {
 
     /**
      * 用于验证方法被子类继承时的问题
@@ -31,6 +31,6 @@ public abstract class SuperClass {
      * @param num   整型参数
      * @throws IllegalArgumentException 非法参数异常
      */
-    protected abstract void assignMethod(String param, int num) throws IllegalArgumentException;
+    abstract void assignMethod(String param, int num) throws IllegalArgumentException;
 
 }
