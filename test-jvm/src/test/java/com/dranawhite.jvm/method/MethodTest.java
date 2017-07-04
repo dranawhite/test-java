@@ -1,9 +1,9 @@
-package com.dranawhite.method;
+package com.dranawhite.jvm.method;
 
 import org.junit.Test;
 
 /**
- * @author dranawhite 2017/7/4
+ * @author dranawhite.web.jvm 2017/7/4
  * @version 1.0
  */
 public class MethodTest {

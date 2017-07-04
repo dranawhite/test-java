@@ -1,7 +1,7 @@
-package com.dranawhite.method;
+package com.dranawhite.jvm.method;
 
 /**
- * @author dranawhite 2017/7/4
+ * @author dranawhite.web.jvm 2017/7/4
  * @version 1.0
  */
 class SubClass extends SuperClass implements SuperInterface {
