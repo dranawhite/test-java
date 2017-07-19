@@ -25,6 +25,7 @@ public class HelloServletXML extends HttpServlet {
         String curTime = dateFormat.format(new Date());
         request.setAttribute("currentTime", curTime);
         request.setAttribute("creator", "XML");
-        request.getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/practice01/hello.jsp").forward(request,
+                response);
     }
 }
