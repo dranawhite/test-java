@@ -26,12 +26,6 @@ public class CustomerServiceTest {
         customerService = new CustomerService();
     }
 
-    @Before
-    public void init() throws Exception {
-        // 初始化数据库
-        DatabaseHelper.executeSqlFile("sql/customer_init.sql");
-    }
-
     @Test
     public void getCustomerListTest() throws Exception {
         List<Customer> customerList = customerService.getCustomerList();

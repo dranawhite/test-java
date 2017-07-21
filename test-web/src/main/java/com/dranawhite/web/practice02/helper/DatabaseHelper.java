@@ -29,11 +29,11 @@ public final class DatabaseHelper {
     private static final ThreadLocal<Connection> CONNECTION_HOLDER;
     private static final QueryRunner QUERY_RUNNER;
     private static final BasicDataSource DATA_SOURCE;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseHelper.class);
 
     static {
-        CONNECTION_HOLDER = new ThreadLocal<Connection>();
-
+        CONNECTION_HOLDER = new ThreadLocal<>();
         QUERY_RUNNER = new QueryRunner();
 
         Properties conf = PropsUtil.loadProps("config.properties");
@@ -47,7 +47,6 @@ public final class DatabaseHelper {
         DATA_SOURCE.setUrl(url);
         DATA_SOURCE.setUsername(username);
         DATA_SOURCE.setPassword(password);
-
     }
 
     /**
@@ -185,7 +184,9 @@ public final class DatabaseHelper {
     }
 
     /**
-     * 执行SQL文件
+     * 指定SQL文件
+     *
+     * @param filePath 文件路径
      */
     public static void executeSqlFile(String filePath) {
         InputStream is = Thread.currentThread().getContextClassLoader()
