@@ -1,0 +1,20 @@
+package com.dranawhite.jvm.assertion;
+
+import org.junit.Test;
+
+/**
+ * @author dranawhite 2017/8/4
+ * @version 1.0
+ */
+public class AssertTest {
+
+    @Test
+    public void testSucc() {
+        Assert.assertSucc();
+    }
+
+    @Test
+    public void testFail() {
+        Assert.assertFail();
+    }
+}

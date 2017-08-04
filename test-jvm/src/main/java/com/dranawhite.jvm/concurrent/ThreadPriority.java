@@ -1,7 +1,8 @@
-package com.dranawhite.jvm.Concurrent;
+package com.dranawhite.jvm.concurrent;
 
 /**
  * JVM的线程调度是抢占式优先权调度
+ * JVM中的线程优先级与操作系统中的优先级并不一致
  *
  * @author dranawhite 2017/7/21
  * @version 1.0

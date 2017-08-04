@@ -5,4 +5,4 @@
  * @version 1.0
  */
 
-package com.dranawhite.jvm.Concurrent;
+package com.dranawhite.jvm.concurrent;

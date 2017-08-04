@@ -1,6 +1,5 @@
 package com.dranawhite.jvm.concurrent;
 
-import com.dranawhite.jvm.Concurrent.ThreadPriority;
 import org.junit.Before;
 import org.junit.Test;
 
