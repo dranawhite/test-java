@@ -1,4 +1,4 @@
-package com.dranawhite.web.practice02.util;
+package dranawhite.frame.util;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;

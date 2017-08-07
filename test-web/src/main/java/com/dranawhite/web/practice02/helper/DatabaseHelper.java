@@ -1,6 +1,6 @@
 package com.dranawhite.web.practice02.helper;
 
-import com.dranawhite.web.practice02.util.CollectionUtil;
+import dranawhite.frame.util.CollectionUtil;
 import com.dranawhite.web.practice02.util.PropsUtil;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -39,7 +39,7 @@ public final class DatabaseHelper {
         Properties conf = PropsUtil.loadProps("config.properties");
         String driver = conf.getProperty("jdbc.driver");
         String url = conf.getProperty("jdbc.url");
-        String username = conf.getProperty("jdbc.username");
+        String username = conf.getProperty("jdbc.user");
         String password = conf.getProperty("jdbc.password");
 
         DATA_SOURCE = new BasicDataSource();

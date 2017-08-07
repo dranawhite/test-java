@@ -1,11 +1,9 @@
 package com.dranawhite.web.practice02;
 
-import com.dranawhite.web.practice02.helper.DatabaseHelper;
 import com.dranawhite.web.practice02.model.po.Customer;
 import com.dranawhite.web.practice02.service.CustomerService;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;

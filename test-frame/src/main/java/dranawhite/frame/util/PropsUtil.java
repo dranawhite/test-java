@@ -1,4 +1,4 @@
-package com.dranawhite.web.practice02.util;
+package dranawhite.frame.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
