@@ -16,6 +16,8 @@
     > 算法模块，算法实例
 * test-structure
     > 数据结构模块，数据结构实例
+* test-pattern
+    > 设计模式模块
     
 # LICENSE
 Apache License 2.0

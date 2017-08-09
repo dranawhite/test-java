@@ -17,6 +17,7 @@
         <module>test-web</module>
         <module>test-structure</module>
         <module>test-algorithm</module>
+        <module>test-pattern</module>
     </modules>
 
     <properties>
