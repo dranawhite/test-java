@@ -2,8 +2,8 @@ package com.dranawhite.web.practice02.service;
 
 import com.dranawhite.web.practice02.helper.DatabaseHelper;
 import com.dranawhite.web.practice02.model.po.Customer;
-import com.dranawhite.web.practice02.util.PropsUtil;
 
+import com.dranawhite.frame.util.PropsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

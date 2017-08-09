@@ -1,8 +1,8 @@
 package com.dranawhite.web.practice02.helper;
 
-import dranawhite.frame.util.CollectionUtil;
-import com.dranawhite.web.practice02.util.PropsUtil;
+import com.dranawhite.frame.util.CollectionUtil;
 
+import com.dranawhite.frame.util.PropsUtil;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;

@@ -1,8 +1,9 @@
 package com.dranawhite.web.frame.practice;
 
-import dranawhite.frame.annotation.Action;
-import dranawhite.frame.annotation.Controller;
-import dranawhite.frame.bean.View;
+import com.dranawhite.frame.annotation.Action;
+import com.dranawhite.frame.annotation.Controller;
+import com.dranawhite.frame.bean.Param;
+import com.dranawhite.frame.bean.View;
 
 /**
  * @author dranawhite 2017/8/7
@@ -11,8 +12,8 @@ import dranawhite.frame.bean.View;
 @Controller
 public class FrameController {
 
-    @Action(value = "post:/helloWorld")
-    public View printHelloWorld() {
+    @Action(value = "get:/helloWorld")
+    public View printHelloWorld(Param param) {
         return new View("practice01/hello.jsp");
     }
 }
