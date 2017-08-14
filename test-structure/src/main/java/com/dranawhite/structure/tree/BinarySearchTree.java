@@ -1,6 +1,8 @@
 package com.dranawhite.structure.tree;
 
 /**
+ * 二叉搜索树
+ *
  * @author liangyq 2017/8/10
  */
 public class BinarySearchTree implements Comparable {
