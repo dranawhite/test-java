@@ -1,0 +1,13 @@
+package com.dranawhite.spring.aop;
+
+/**
+ * 被代理的接口
+ *
+ * @author dranawhite 2017/8/17
+ * @version 1.0
+ */
+interface Apolopy {
+
+    void sayAgain();
+
+}

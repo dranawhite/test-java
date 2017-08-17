@@ -1,0 +1,21 @@
+package com.dranawhite.spring.aop;
+
+import org.springframework.stereotype.Component;
+
+/**
+ * @author dranawhite 2017/8/17
+ * @version 1.0
+ */
+@Component
+public class Person {
+
+    public void say() {
+        System.out.println("I'm Talking!");
+    }
+
+    public void sayNull() {
+        System.out.println("I'm Talking Null!");
+        throw new NullPointerException("我是一个异常！");
+    }
+
+}
