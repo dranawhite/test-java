@@ -8,14 +8,14 @@ import java.util.List;
  *
  * @author liangyq 2017/8/14
  */
-public class BTree
-{
-    /** 
+public class BTree {
+
+    /**
      * 树节点
      */
     private TreeNode data;
-    
-    /** 
+
+    /**
      * 子树集合
      */
     private List<BTree> childList;
@@ -25,8 +25,7 @@ public class BTree
      *
      * @param data 树节点
      */
-    public BTree(TreeNode data)
-    {
+    public BTree(TreeNode data) {
         this.data = data;
         this.childList = new ArrayList<>();
     }
@@ -34,11 +33,10 @@ public class BTree
     /**
      * 构造函数
      *
-     * @param data 树节点
+     * @param data      树节点
      * @param childList 子树集合
      */
-    public BTree(TreeNode data, List<BTree> childList)
-    {
+    public BTree(TreeNode data, List<BTree> childList) {
         this.data = data;
         this.childList = childList;
     }
@@ -59,8 +57,8 @@ public class BTree
         this.childList = childList;
     }
 
-    static class TreeNode
-    {
+    static class TreeNode {
+
         /**
          * 节点Id
          */
@@ -77,13 +75,12 @@ public class BTree
         private String text;
 
         /**
-         * 构造函数 
+         * 构造函数
          *
-         * @param nodeId 节点Id 
-         * @param parentId 父节点Id 
+         * @param nodeId   节点Id
+         * @param parentId 父节点Id
          */
-        public TreeNode(String nodeId, String parentId, String text)
-        {
+        public TreeNode(String nodeId, String parentId, String text) {
             this.nodeId = nodeId;
             this.parentId = parentId;
             this.text = text;

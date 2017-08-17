@@ -9,16 +9,30 @@ import org.junit.Test;
 public class PersonTest {
 
     @Test
-    public void testSay() {
+    public void testSay_Dynamicproxy() {
         PersonInvocationHandlerImpl personInvocationHandler = new PersonInvocationHandlerImpl();
         IPerson person = personInvocationHandler.getPersonProxy();
         person.say();
     }
 
     @Test
-    public void testSayAgain() {
+    public void testSayAgain_Dynamicproxy() {
         PersonInvocationHandlerImpl personInvocationHandler = new PersonInvocationHandlerImpl();
         IPerson person = personInvocationHandler.getPersonProxy();
+        person.sayAgain();
+    }
+
+    @Test
+    public void testSay_Cglib() {
+        CGLibInterceptor cgLibInterceptor = new CGLibInterceptor();
+        Person person = cgLibInterceptor.getProxy(Person.class);
+        person.say();
+    }
+
+    @Test
+    public void testSayAgain_Cglib() {
+        CGLibInterceptor cgLibInterceptor = new CGLibInterceptor();
+        Person person = cgLibInterceptor.getProxy(Person.class);
         person.sayAgain();
     }
 
