@@ -11,4 +11,12 @@
     <!-- 默认值为false，表示只能代理接口，改为true，可以代理目标类 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
+    <!-- 使用配置的方式使用AspectJ切面 -->
+    <aop:config>
+        <aop:aspect ref="personAspectJ">
+            <aop:around method="around"
+                        pointcut="execution(* com.dranawhite.spring.aop.Person.sayGood.*(..))" />
+        </aop:aspect>
+    </aop:config>
+
 </beans>
