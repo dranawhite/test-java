@@ -61,4 +61,13 @@ public class PersonTest {
         apolopy.sayAgain();
     }
 
+    @Test
+    public void testSay_advisor_xml() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("aop/applicationContext.xml");
+        Person person = (Person) ctx.getBean("proxyAdvisorFactoryBean");
+        person.say();
+        person.sayGoodMorning();
+        person.sayGoodEvening();
+    }
+
 }

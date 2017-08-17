@@ -18,4 +18,12 @@ public class Person {
         throw new NullPointerException("我是一个异常！");
     }
 
+    public void sayGoodMorning() {
+        System.out.println("Good Morning!");
+    }
+
+    public void sayGoodEvening() {
+        System.out.println("Good Evening!");
+    }
+
 }
