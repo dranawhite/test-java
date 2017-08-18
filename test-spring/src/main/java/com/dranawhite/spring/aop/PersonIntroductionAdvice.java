@@ -5,7 +5,7 @@ import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 import org.springframework.stereotype.Component;
 
 /**
- * 引入增强
+ * 引入增强,动态实现接口
  * <pre>
  *     AOP中对方法的增强称为Weaving(织入)
  *     对类的增强称为Introduction(引入)
