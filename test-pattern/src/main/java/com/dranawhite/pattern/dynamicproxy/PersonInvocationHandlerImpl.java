@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
+ * JDK动态代理的类必须要实现一个接口
+ *
  * @author dranawhite 2017/8/9
  * @version 1.0
  */

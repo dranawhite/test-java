@@ -1,6 +1,11 @@
 package com.dranawhite.spring.test;
 
 /**
+ * JUnit参数化测试
+ * <pre>
+ *     具体使用参照test/com.dranawhite.spring.test.CommonUtilsTest
+ * </pre>
+ *
  * @author dranawhite 2017/8/18
  * @version 1.0
  */
