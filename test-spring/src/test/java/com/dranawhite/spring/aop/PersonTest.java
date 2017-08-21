@@ -3,6 +3,7 @@ package com.dranawhite.spring.aop;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -86,7 +87,7 @@ public class PersonTest {
 
     @Test
     public void testSay_autopoint_xml() {
-        System.out.println("---------测试XML式自动代理切点通知---------------------");
+        System.out.println("---------测试XML式自动代理切点通知--------------");
         ApplicationContext ctx = new ClassPathXmlApplicationContext
                 ("aop/applicationContext-autopoint.xml");
         Person person = (Person) ctx.getBean("person");
@@ -97,7 +98,7 @@ public class PersonTest {
 
     @Test
     public void testSay_auto_xml() {
-        System.out.println("---------测试XML式自动代理通知---------------------");
+        System.out.println("---------测试XML式自动代理通知-----------------");
         ApplicationContext ctx = new ClassPathXmlApplicationContext
                 ("aop/applicationContext-auto.xml");
         Person person = (Person) ctx.getBean("person");
@@ -106,21 +107,32 @@ public class PersonTest {
         person.sayGoodEvening();
     }
 
-    @Ignore
+    @Test
+    public void testSay_annotation() {
+        System.out.println("---------测试Aspect编程式注解通知--------------");
+    }
+
     @Test
     public void testSay_aspectj() {
         System.out.println("---------测试Aspect编程式切点通知--------------");
-        ProxyFactory proxyFactory = new ProxyFactory();
+        ApplicationContext ctx = new ClassPathXmlApplicationContext
+                ("aop/applicationContext-aspectanno.xml");
+        Person person = (Person) ctx.getBean("person");
+        person.say();
+        person.sayGoodMorning();
+        person.sayGoodEvening();
 
     }
 
-    @Ignore
     @Test
     public void testSay_aspectj_xml() {
         System.out.println("---------测试Aspect配置式切点通知--------------");
         ApplicationContext ctx = new ClassPathXmlApplicationContext
                 ("aop/applicationContext-aspect.xml");
-
+        Person person = (Person) ctx.getBean("person");
+        person.say();
+        person.sayGoodMorning();
+        person.sayGoodEvening();
     }
 
 }

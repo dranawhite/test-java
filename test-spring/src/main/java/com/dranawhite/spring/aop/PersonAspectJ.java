@@ -39,6 +39,13 @@ public class PersonAspectJ {
         return result;
     }
 
+    public Object aroundXml(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        before();
+        Object result = proceedingJoinPoint.proceed();
+        after();
+        return result;
+    }
+
     public void before() {
         System.out.println("Spring Aspect-前置通知");
     }
