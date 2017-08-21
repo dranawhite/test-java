@@ -14,6 +14,8 @@
     > Web模块，测试Web程序
 * test-pattern
     > 设计模式模块
+* test-masm
+    > 汇编模块
     
 # LICENSE
 Apache License 2.0
