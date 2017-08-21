@@ -1,9 +1,7 @@
 package com.dranawhite.spring.aop;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.aop.framework.ProxyFactory;
-import org.springframework.aop.framework.ProxyFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

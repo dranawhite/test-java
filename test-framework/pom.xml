@@ -8,8 +8,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
-    <artifactId>test-algorithm</artifactId>
+    <artifactId>test-framework</artifactId>
+
+    <modules>
+        <module>test-frame</module>
+        <module>test-spring</module>
+        <module>test-log</module>
+        <module>test-mybatis</module>
+    </modules>
 
 
 </project>

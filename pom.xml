@@ -12,13 +12,10 @@
     <modules>
         <module>test-core</module>
         <module>test-common</module>
-        <module>test-frame</module>
-        <module>test-jvm</module>
-        <module>test-web</module>
-        <module>test-structure</module>
-        <module>test-algorithm</module>
+        <module>test-basic</module>
         <module>test-pattern</module>
-        <module>test-spring</module>
+        <module>test-framework</module>
+        <module>test-web</module>
     </modules>
 
     <properties>
