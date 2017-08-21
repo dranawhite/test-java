@@ -13,7 +13,7 @@ public class AssertTest {
         Assert.assertSucc();
     }
 
-    @Test
+    @Test(expected = java.lang.AssertionError.class)
     public void testFail() {
         Assert.assertFail();
     }
