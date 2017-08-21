@@ -4,14 +4,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.RandomAccess;
 
 /**
  * 随机访问接口
+ * <pre>
+ *      实现该接口的List，使用索引遍历的速度，要快于使用迭代器遍历
+ * </pre>
  *
  * @author dranawhite 2017/8/14
  * @version 1.0
+ *
+ * @see java.util.RandomAccess
  */
-public class RandomAccess {
+public class RandomAccessList {
 
     /**
      * 初始化列表
@@ -80,16 +86,4 @@ public class RandomAccess {
         }
     }
 
-    public static void main(String[] args) {
-        ArrayList arraylist = new ArrayList();
-        LinkedList linkedlist = new LinkedList();
-        initList(arraylist, 100000);
-        initList(linkedlist, 100000);
-        traverse(arraylist);
-        traverse(linkedlist);
-        traverseWithIterator(arraylist);
-        traverseWithLoop(arraylist);
-        traverseWithIterator(linkedlist);
-        traverseWithLoop(linkedlist);
-    }
 }

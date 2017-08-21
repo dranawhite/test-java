@@ -3,7 +3,7 @@ package com.dranawhite.jvm.assertion;
 /**
  * 断言
  * <pre>
- *     断言默认是关闭的，开启断言使用-ea参数
+ *     断言默认是关闭的，开启断言使用jvm的-ea参数
  * </pre>
  *
  * @author dranawhite 2017/8/4

@@ -6,7 +6,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author dranawhite.web.jvm 2017/7/4
+ * 自定义注解
+ *
+ * @author dranawhite 2017/7/4
  * @version 1.0
  */
 @Target({ElementType.METHOD})

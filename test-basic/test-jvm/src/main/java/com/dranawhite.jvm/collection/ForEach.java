@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <pre>
+ *    加强for循环foreach循环，必须实现Iterable接口;
+ *    对于实现了Iterable接口的类而言，foreach循环底层是迭代器遍历;
+ *    对于数组而言，foreach循环底层是for循环;
+ *
+ *    注意：底层字节码见test/com.dranawhite.jvm.collection.ForEachTest
+ * </pre>
+ *
  * @author dranawhite 2017/8/11
  * @version 1.0
  */
