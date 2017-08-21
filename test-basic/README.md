@@ -12,5 +12,3 @@
     > 网络编程
 * test-concurrent
     > 并发编程
-# LICENSE
-Apache License 2.0

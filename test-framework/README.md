@@ -10,6 +10,3 @@
     > Mybatis模块
 * test-spring     
     > Spring模块
-    
-# LICENSE
-Apache License 2.0
