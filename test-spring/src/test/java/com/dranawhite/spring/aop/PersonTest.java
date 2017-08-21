@@ -75,6 +75,15 @@ public class PersonTest {
     }
 
     @Test
+    public void testSay_aspect_introduction() {
+        System.out.println("---------测试Aspect引入通知--------------------");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext
+                ("aop/applicationContext-aspectanno.xml");
+        Apolopy apolopy = (Apolopy) ctx.getBean("person");
+        apolopy.sayAgain();
+    }
+
+    @Test
     public void testSay_advisor_xml() {
         System.out.println("---------测试XML式切点通知---------------------");
         ApplicationContext ctx = new ClassPathXmlApplicationContext
@@ -110,6 +119,10 @@ public class PersonTest {
     @Test
     public void testSay_annotation() {
         System.out.println("---------测试Aspect编程式注解通知--------------");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext
+                ("aop/applicationContext-aspectanno.xml");
+        Person person = (Person) ctx.getBean("person");
+        person.sayTag();
     }
 
     @Test
@@ -121,7 +134,6 @@ public class PersonTest {
         person.say();
         person.sayGoodMorning();
         person.sayGoodEvening();
-
     }
 
     @Test

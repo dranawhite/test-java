@@ -31,7 +31,7 @@ public class PersonAspectJ {
      * @return
      * @throws Throwable
      */
-    @Around("execution(* com.dranawhite.spring.aop.Person.*(..))")
+    @Around("execution(* com.dranawhite.spring.aop.Person.say(..))")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         before();
         Object result = proceedingJoinPoint.proceed();

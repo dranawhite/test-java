@@ -26,4 +26,9 @@ public class Person {
         System.out.println("Good Evening!");
     }
 
+    @Tag
+    public void sayTag() {
+        System.out.println("I'm A Tag!");
+    }
+
 }

@@ -16,7 +16,18 @@ public class PersonAnnotationAdvice {
 
     @Around("@annotation(com.dranawhite.spring.aop.Tag)")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-        return null;
+        before();
+        Object result = joinPoint.proceed();
+        after();
+        return result;
+    }
+
+    private void before() {
+        System.out.println("Spring Aspect-前置通知");
+    }
+
+    private void after() {
+        System.out.println("Spring Aspect-后置通知");
     }
 
 }
