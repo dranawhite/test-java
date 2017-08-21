@@ -31,4 +31,20 @@ public class MethodTest {
         staticAssign.parse(new SubClass());
     }
 
+    @Test
+    public void testPrint() {
+        System.out.println("校验静态方法的重载：");
+        SuperClass.print();
+        SubClass.print();
+        SuperClass superClass = new SubClass();
+        superClass.print();
+    }
+
+    @Test
+    public void testPrintHello() {
+        System.out.println("校验静态方法的继承：");
+        SuperClass.printHello();
+        SubClass.printHello();
+    }
+
 }

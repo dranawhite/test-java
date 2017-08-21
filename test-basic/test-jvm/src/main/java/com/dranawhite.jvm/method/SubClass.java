@@ -20,4 +20,12 @@ class SubClass extends SuperClass implements SuperInterface {
         throw new NullPointerException();
     }
 
+    /**
+     * 静态方法在编译时就能确定;
+     * 子类不能重写父类的静态方法，加Override标注报错;
+     */
+    static void print() {
+        System.out.println("SubClass invoke!");
+    }
+
 }

@@ -33,4 +33,19 @@ abstract class SuperClass {
      */
     abstract void assignMethod(String param, int num) throws IllegalArgumentException;
 
+    /**
+     * 静态方法在编译时就能确定;
+     * 子类不能重写父类的静态方法，加Override标注报错;
+     */
+    static void print() {
+        System.out.println("SuperClass invoke!");
+    }
+
+    /**
+     * 子类可以继承父类的静态方法
+     */
+    static void printHello() {
+        System.out.println("SuperClass invoke Hello!");
+    }
+
 }

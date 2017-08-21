@@ -32,7 +32,6 @@ public class FinalizeObject {
         obj = this;
         if (obj != null) {
             System.out.println(name + "-复活");
-            System.out.println(name + ": obj=" + obj);
         }
     }
 
