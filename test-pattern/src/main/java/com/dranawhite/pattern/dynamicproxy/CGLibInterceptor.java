@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
  * @author dranawhite 2017/8/16
  * @version 1.0
  */
-public class CGLibInterceptor implements MethodInterceptor {
+class CGLibInterceptor implements MethodInterceptor {
 
     public <T> T getProxy(Class<T> cls) {
         //CGLib中的加强器，用来创建动态代理

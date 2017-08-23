@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  */
 @Component
-public class Person {
+class Person {
 
     public void say() {
         System.out.println("I'm Talking!");

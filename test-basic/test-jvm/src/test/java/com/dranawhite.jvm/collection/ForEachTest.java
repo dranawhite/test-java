@@ -10,7 +10,7 @@ import java.util.List;
  * @author dranawhite 2017/8/11
  * @version 1.0
  */
-public class ForEachTest {
+class ForEachTest {
 
     /**
      * 编译后字节码如下，foreach其实底层就是iterator遍历

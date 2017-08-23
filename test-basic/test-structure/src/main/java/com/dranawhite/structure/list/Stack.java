@@ -5,6 +5,6 @@ package com.dranawhite.structure.list;
  *
  * @author liangyq 2017/8/10
  */
-public class Stack {
+class Stack {
 
 }

@@ -15,7 +15,7 @@ import java.util.List;
  * @author dranawhite 2017/8/11
  * @version 1.0
  */
-public class ForEach {
+class ForEach {
 
     private static ArrayList<Integer> strList = new ArrayList<>(50);
 

@@ -6,7 +6,7 @@ package com.dranawhite.structure.tree;
  * @author dranawhite 2017/8/14
  * @version 1.0
  */
-public class ArrayTree extends AbstractTree {
+class ArrayTree extends AbstractTree {
 
     private Object[] objs;
     private int cursor;

@@ -9,7 +9,7 @@ package com.dranawhite.spring.test;
  * @author dranawhite 2017/8/18
  * @version 1.0
  */
-public final class CommonUtils {
+final class CommonUtils {
 
     public static final String transferCammel(String str) {
         str = str.toLowerCase();

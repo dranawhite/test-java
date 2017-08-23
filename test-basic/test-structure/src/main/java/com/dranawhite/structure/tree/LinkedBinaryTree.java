@@ -6,7 +6,7 @@ package com.dranawhite.structure.tree;
  * @author dranawhite 2017/8/14
  * @version 1.0
  */
-public class LinkedBinaryTree extends AbstractTree implements BinaryTree {
+class LinkedBinaryTree extends AbstractTree implements BinaryTree {
 
     @Override
     public void add(Object data) {

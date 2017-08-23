@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  */
 @Component
-public class PersonAroundAdvice implements MethodInterceptor {
+class PersonAroundAdvice implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {

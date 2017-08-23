@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-public class PersonAspectIntroduction {
+class PersonAspectIntroduction {
 
     /**
      * <pre>

@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * @version 1.0
  */
 @Component
-public class PersonAfterAdvice implements AfterReturningAdvice {
+class PersonAfterAdvice implements AfterReturningAdvice {
 
     @Override
     public void afterReturning(Object returnValue, Method method, Object[] args, Object target)

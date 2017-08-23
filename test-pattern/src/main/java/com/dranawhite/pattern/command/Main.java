@@ -4,7 +4,7 @@ package com.dranawhite.pattern.command;
  * @author dranawhite 2017/8/18
  * @version 1.0
  */
-public class Main {
+class Main {
 
     public void main() {
         Receiver receiver = new Receiver();

@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
  * @author dranawhite 2017/8/21
  * @version 1.0
  */
-public class Log4j1Logger {
+class Log4j1Logger {
 
     private static final Logger logger = LogManager.getLogger(Log4j1Logger.class);
 

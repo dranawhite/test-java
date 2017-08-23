@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * @version 1.0
  */
 @Component
-public class PersonBeforeAdvice implements MethodBeforeAdvice {
+class PersonBeforeAdvice implements MethodBeforeAdvice {
 
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {

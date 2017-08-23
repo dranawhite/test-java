@@ -1,11 +1,13 @@
 package com.dranawhite.structure.list;
 
+import java.util.Iterator;
+
 /**
  * 集合接口
  *
  * @author liangyq 2017/8/10
  */
-public interface Collection<T> extends Iterable {
+interface Collection<T> extends Iterable<T> {
 
     int size();
 

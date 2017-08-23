@@ -7,7 +7,7 @@ import org.junit.Test;
  * @author dranawhite 2017/7/21
  * @version 1.0
  */
-public class ThreadPriorityTest {
+class ThreadPriorityTest {
 
     private ThreadPriority highThreadPriority;
     private ThreadPriority normThreadPriority;

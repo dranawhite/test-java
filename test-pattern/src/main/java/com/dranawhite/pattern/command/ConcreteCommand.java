@@ -6,7 +6,7 @@ package com.dranawhite.pattern.command;
  * @author dranawhite 2017/8/18
  * @version 1.0
  */
-public class ConcreteCommand implements Command {
+class ConcreteCommand implements Command {
 
     private Receiver receiver;
 

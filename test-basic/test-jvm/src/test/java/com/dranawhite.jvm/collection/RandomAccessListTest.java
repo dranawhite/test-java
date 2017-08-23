@@ -11,7 +11,7 @@ import java.util.LinkedList;
  * @author dranawhite 2017/8/21
  * @version 1.0
  */
-public class RandomAccessListTest {
+class RandomAccessListTest {
 
     private static RandomAccessList randomAccessList;
     private static ArrayList arraylist;

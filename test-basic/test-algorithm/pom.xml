@@ -11,5 +11,11 @@
 
     <artifactId>test-algorithm</artifactId>
 
-
+    <dependencies>
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 </project>

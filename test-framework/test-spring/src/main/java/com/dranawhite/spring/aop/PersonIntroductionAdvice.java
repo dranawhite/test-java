@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  */
 @Component
-public class PersonIntroductionAdvice extends DelegatingIntroductionInterceptor implements Apolopy {
+class PersonIntroductionAdvice extends DelegatingIntroductionInterceptor implements Apolopy {
 
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {

@@ -9,7 +9,7 @@ package com.dranawhite.pattern.command;
  * @author dranawhite 2017/8/18
  * @version 1.0
  */
-public class Receiver {
+class Receiver {
 
     public void action() {
         System.out.println("执行请求！");

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-public class PersonAnnotationAdvice {
+class PersonAnnotationAdvice {
 
     @Around("@annotation(com.dranawhite.spring.aop.Tag)")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {

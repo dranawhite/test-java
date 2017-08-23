@@ -9,7 +9,7 @@ package com.dranawhite.jvm.assertion;
  * @author dranawhite 2017/8/4
  * @version 1.0
  */
-public class Assert {
+class Assert {
 
     /**
      * 断言成立时，正常结束

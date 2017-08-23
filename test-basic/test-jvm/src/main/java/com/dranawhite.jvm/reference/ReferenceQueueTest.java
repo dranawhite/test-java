@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
  * @author dranawhite 2017/8/4
  * @version 1.0
  */
-public class ReferenceQueueTest {
+class ReferenceQueueTest {
 
     public static void main(String[] args) {
         final ReferenceQueue q = new ReferenceQueue();

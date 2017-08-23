@@ -6,7 +6,7 @@ import org.junit.Test;
  * @author dranawhite.web.jvm 2017/7/4
  * @version 1.0
  */
-public class MethodTest {
+class MethodTest {
 
    /*   运行结果
 

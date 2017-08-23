@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author dranawhite 2017/8/21
  * @version 1.0
  */
-public class JdkLogger {
+class JdkLogger {
 
     public void info() throws IOException {
         Logger logger = Logger.getLogger("logging.jdk");

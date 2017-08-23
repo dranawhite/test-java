@@ -1,8 +1,6 @@
 package com.dranawhite.jvm.collection;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.RandomAccess;
 
@@ -17,7 +15,7 @@ import java.util.RandomAccess;
  *
  * @see java.util.RandomAccess
  */
-public class RandomAccessList {
+class RandomAccessList {
 
     /**
      * 初始化列表

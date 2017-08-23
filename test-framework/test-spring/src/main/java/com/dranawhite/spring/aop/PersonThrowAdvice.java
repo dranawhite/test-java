@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * @version 1.0
  */
 @Component
-public class PersonThrowAdvice implements ThrowsAdvice {
+class PersonThrowAdvice implements ThrowsAdvice {
 
     public void afterThrowing(Method method, Object[] args, Object target, Exception ex) {
         System.out.println("------抛出异常------");

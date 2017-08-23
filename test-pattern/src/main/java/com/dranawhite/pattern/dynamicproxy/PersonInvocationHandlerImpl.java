@@ -10,7 +10,7 @@ import java.lang.reflect.Proxy;
  * @author dranawhite 2017/8/9
  * @version 1.0
  */
-public class PersonInvocationHandlerImpl implements InvocationHandler {
+class PersonInvocationHandlerImpl implements InvocationHandler {
 
     private IPerson person;
 

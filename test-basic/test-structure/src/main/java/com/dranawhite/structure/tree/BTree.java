@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author liangyq 2017/8/14
  */
-public class BTree {
+class BTree {
 
     /**
      * 树节点

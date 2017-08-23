@@ -19,6 +19,6 @@ package com.dranawhite.jvm.memory;
  * @author dranawhite 2017/8/4
  * @version 1.0
  */
-public class CommonObj {
+class CommonObj {
 
 }

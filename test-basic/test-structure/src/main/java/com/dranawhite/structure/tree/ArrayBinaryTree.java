@@ -4,6 +4,6 @@ package com.dranawhite.structure.tree;
  * @author dranawhite 2017/8/14
  * @version 1.0
  */
-public class ArrayBinaryTree extends ArrayTree implements BinaryTree {
+class ArrayBinaryTree extends ArrayTree implements BinaryTree {
 
 }

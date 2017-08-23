@@ -1,11 +1,13 @@
 package com.dranawhite.structure.list;
 
+import java.util.Iterator;
+
 /**
  * 表接口
  *
  * @author liangyq 2017/8/10
  */
-public interface List<T> extends Collection {
+interface List<T> extends Collection {
 
     T get(int idx);
 

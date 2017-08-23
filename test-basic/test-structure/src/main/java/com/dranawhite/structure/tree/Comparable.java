@@ -5,7 +5,7 @@ package com.dranawhite.structure.tree;
  *
  * @author liangyq 2017/8/10
  */
-public interface Comparable<T> {
+interface Comparable<T> {
 
     int compareTo(T obj);
 

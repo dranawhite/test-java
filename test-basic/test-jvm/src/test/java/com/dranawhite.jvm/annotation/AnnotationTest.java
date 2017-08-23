@@ -6,7 +6,7 @@ import org.junit.Test;
  * @author dranawhite.web.jvm.jvm 2017/7/4
  * @version 1.0
  */
-public class AnnotationTest {
+class AnnotationTest {
 
     @Test
     @UserCase(id = 1)

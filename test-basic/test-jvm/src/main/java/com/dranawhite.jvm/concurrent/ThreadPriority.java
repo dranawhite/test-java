@@ -7,7 +7,7 @@ package com.dranawhite.jvm.concurrent;
  * @author dranawhite 2017/7/21
  * @version 1.0
  */
-public class ThreadPriority extends Thread {
+class ThreadPriority extends Thread {
 
     /**
      * 线程名

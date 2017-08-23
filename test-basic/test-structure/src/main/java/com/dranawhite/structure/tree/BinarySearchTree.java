@@ -5,7 +5,7 @@ package com.dranawhite.structure.tree;
  *
  * @author liangyq 2017/8/10
  */
-public class BinarySearchTree implements Comparable {
+class BinarySearchTree implements Comparable {
 
     @Override
     public int compareTo(Object obj) {

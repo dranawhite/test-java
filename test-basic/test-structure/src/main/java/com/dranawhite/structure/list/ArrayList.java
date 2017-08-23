@@ -1,13 +1,16 @@
 package com.dranawhite.structure.list;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.RandomAccess;
 
 /**
  * 表
  * 
  * @author liangyq 2017/8/10
  */
-public class ArrayList implements List {
+class ArrayList<T> implements List, RandomAccess {
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -67,16 +70,17 @@ public class ArrayList implements List {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new ArrayListIterator<>();
     }
 
     @Override
-    public Object get(int idx) {
+    @SuppressWarnings("unchecked")
+    public T get(int idx) {
         if (idx < 0 || idx > theSize) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        return theItems[idx];
+        return (T) theItems[idx];
     }
 
     @Override
@@ -124,6 +128,22 @@ public class ArrayList implements List {
     public void trimToSize() {
         ensureCapacity(theSize);
     }
+
+    public T[] toArray(T[] e) {
+        return (T[])Arrays.copyOf(theItems, theSize, e.getClass());
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder arrSb = new StringBuilder();
+        arrSb.append("[");
+        for (int i = 0 ; i < theSize; i++) {
+            arrSb.append(theItems[i] + ",");
+        }
+        arrSb.deleteCharAt(arrSb.length() - 1);
+        arrSb.append("]");
+        return arrSb.toString();
+    }
     
     private class ArrayListIterator<T> implements ListIterator {
 
@@ -135,11 +155,11 @@ public class ArrayList implements List {
         }
 
         @Override
-        public Object next() {
+        public T next() {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-            return theItems[current++];
+            return (T) theItems[current++];
         }
 
         @Override
@@ -157,11 +177,11 @@ public class ArrayList implements List {
         }
 
         @Override
-        public Object previous() {
+        public T previous() {
             if (!hasPrevious()) {
                 throw new NoSuchElementException();
             }
-            return theItems[current--];
+            return (T) theItems[current--];
         }
 
         @Override
