@@ -7,7 +7,7 @@ import java.util.Iterator;
  *
  * @author liangyq 2017/8/10
  */
-interface Collection<T> extends Iterable<T> {
+interface Collection<E> extends Iterable<E> {
 
     int size();
 
@@ -15,12 +15,12 @@ interface Collection<T> extends Iterable<T> {
 
     void clear();
 
-    boolean contains(T data);
+    boolean contains(E data);
 
-    boolean add(T data);
+    boolean add(E data);
 
-    boolean remove(T data);
+    boolean remove(E data);
 
-    Iterator<T> iterator();
+    Iterator<E> iterator();
 
 }

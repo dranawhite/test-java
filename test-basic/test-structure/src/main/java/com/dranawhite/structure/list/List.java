@@ -7,26 +7,26 @@ import java.util.Iterator;
  *
  * @author liangyq 2017/8/10
  */
-interface List<T> extends Collection {
+interface List<E> extends Collection<E> {
 
-    T get(int idx);
+    E get(int idx);
 
-    void set(int idx, T data);
+    void set(int idx, E data);
 
-    void add(int idx, T data);
+    void add(int idx, E data);
 
     void remove(int idx);
 
 
-    interface ListIterator<T> extends Iterator {
+    interface ListIterator<E> extends Iterator<E> {
 
         boolean hasPrevious();
 
-        T previous();
+        E previous();
 
-        void add(T data);
+        void add(E data);
 
-        void set(T data);
+        void set(E data);
 
     }
 

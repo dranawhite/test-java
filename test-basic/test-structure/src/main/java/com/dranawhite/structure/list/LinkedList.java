@@ -9,13 +9,13 @@ import java.util.NoSuchElementException;
  * 
  * @author liangyq 2017/8/10
  */
-public class LinkedList implements List {
+public class LinkedList<E> implements List<E> {
     
-    private Node node;
+    private Node<E> node;
     
-    private Node beginMarker;
+    private Node<E> beginMarker;
     
-    private Node endMarker;
+    private Node<E> endMarker;
     
     private int theSize;
     
@@ -74,14 +74,14 @@ public class LinkedList implements List {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<E> iterator() {
         //Todo to be continue ....;
         return null;
     }
 
     @Override
-    public Object get(int idx) {
-        return getNode(idx).data;
+    public E get(int idx) {
+        return (E) getNode(idx).data;
     }
 
     @Override
@@ -124,7 +124,7 @@ public class LinkedList implements List {
      * @param upper     合法的最大索引
      * @return
      */
-    private Node getNode(int idx, int lower, int upper) {
+    private Node<E> getNode(int idx, int lower, int upper) {
         if (idx < lower || idx > upper) {
             throw new IndexOutOfBoundsException();
         }
@@ -143,26 +143,26 @@ public class LinkedList implements List {
         return node; 
     }
     
-    private Node getNode(int idx) {
+    private Node<E> getNode(int idx) {
         return getNode(idx, 0, theSize - 1);
     }
     
-    private class Node<T> {
+    private class Node<E> {
         
-        public T data;
+        public E data;
         
-        public Node<T> previous;
+        public Node<E> previous;
         
-        public Node<T> next;
+        public Node<E> next;
         
-        public Node(T data, Node<T> p, Node<T> n) {
+        public Node(E data, Node<E> p, Node<E> n) {
             this.data = data;
             this.previous = p;
             this.next = n;
         }
     }
 
-    private class LinkedListIterator implements ListIterator {
+    private class LinkedListIterator<E> implements ListIterator<E> {
 
         private Node curNode = beginMarker.next;
 
@@ -176,7 +176,7 @@ public class LinkedList implements List {
         }
 
         @Override
-        public Object next() {
+        public E next() {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
@@ -185,7 +185,7 @@ public class LinkedList implements List {
             }
             curNode = curNode.next;
             okToRemove = true;
-            return curNode.next.data;
+            return (E) curNode.next.data;
         }
 
         @Override
@@ -208,7 +208,7 @@ public class LinkedList implements List {
         }
 
         @Override
-        public Object previous() {
+        public E previous() {
             //Todo to be continue ....;
             return null;
         }

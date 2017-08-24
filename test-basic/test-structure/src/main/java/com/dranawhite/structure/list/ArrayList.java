@@ -10,7 +10,7 @@ import java.util.RandomAccess;
  * 
  * @author liangyq 2017/8/10
  */
-class ArrayList<T> implements List, RandomAccess {
+class ArrayList<E> implements List<E>, RandomAccess {
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -70,17 +70,17 @@ class ArrayList<T> implements List, RandomAccess {
     }
 
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<E> iterator() {
         return new ArrayListIterator<>();
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public T get(int idx) {
+    public E get(int idx) {
         if (idx < 0 || idx > theSize) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        return (T) theItems[idx];
+        return (E) theItems[idx];
     }
 
     @Override
@@ -129,8 +129,8 @@ class ArrayList<T> implements List, RandomAccess {
         ensureCapacity(theSize);
     }
 
-    public T[] toArray(T[] e) {
-        return (T[])Arrays.copyOf(theItems, theSize, e.getClass());
+    public E[] toArray(E[] e) {
+        return (E[])Arrays.copyOf(theItems, theSize, e.getClass());
     }
 
     @Override
@@ -145,7 +145,7 @@ class ArrayList<T> implements List, RandomAccess {
         return arrSb.toString();
     }
     
-    private class ArrayListIterator<T> implements ListIterator {
+    private class ArrayListIterator<E> implements ListIterator<E> {
 
         private int current;
         
@@ -155,11 +155,11 @@ class ArrayList<T> implements List, RandomAccess {
         }
 
         @Override
-        public T next() {
+        public E next() {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-            return (T) theItems[current++];
+            return (E) theItems[current++];
         }
 
         @Override
@@ -177,11 +177,11 @@ class ArrayList<T> implements List, RandomAccess {
         }
 
         @Override
-        public T previous() {
+        public E previous() {
             if (!hasPrevious()) {
                 throw new NoSuchElementException();
             }
-            return (T) theItems[current--];
+            return (E) theItems[current--];
         }
 
         @Override
