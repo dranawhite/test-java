@@ -8,7 +8,7 @@ import org.junit.Test;
  * @author dranawhite 2017/8/4
  * @version 1.0
  */
-class FinalizeObjectTest {
+public class FinalizeObjectTest {
 
     @Test
     public void testFinalize() throws InterruptedException {
