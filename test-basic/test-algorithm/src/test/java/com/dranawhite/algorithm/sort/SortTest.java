@@ -24,4 +24,28 @@ public class SortTest {
         SortUtils.printArr(arrs);
     }
 
+    @Test
+    public void testInsert() {
+        System.out.println("--------插入排序--------");
+        Sort sort = new InsertSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
+    @Test
+    public void testSelect() {
+        System.out.println("--------选择排序--------");
+        Sort sort = new SelectSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
+    @Test
+    public void testMerge() {
+        System.out.println("--------归并排序--------");
+        Sort sort = new MergeSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
 }
