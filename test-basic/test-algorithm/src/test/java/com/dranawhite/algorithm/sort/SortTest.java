@@ -48,4 +48,12 @@ public class SortTest {
         SortUtils.printArr(arrs);
     }
 
+    @Test
+    public void testShell() {
+        System.out.println("--------希尔排序--------");
+        Sort sort = new ShellSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
 }
