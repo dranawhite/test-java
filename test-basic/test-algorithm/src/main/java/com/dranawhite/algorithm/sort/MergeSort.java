@@ -9,6 +9,9 @@ package com.dranawhite.algorithm.sort;
  *
  * 算法复杂度：
  *      O(N*logN)
+ *
+ * 图：
+ *      resources/sort/归并排序.png
  * </pre>
  *
  * @author dranawhite 2017/8/25

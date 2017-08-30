@@ -21,6 +21,9 @@ package com.dranawhite.algorithm.sort;
  *      当数组升序时出现最好情况，数组倒序时出现最坏情况；
  *      最好情况：N(N-1)/2
  *      最坏情况：N(N-1)
+ *
+ * 图片：
+ *      resources/sort/bubble.png
  * </pre>
  *
  * @author dranawhite 2017/8/23

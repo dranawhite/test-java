@@ -56,4 +56,20 @@ public class SortTest {
         SortUtils.printArr(arrs);
     }
 
+    @Test
+    public void testQuick() {
+        System.out.println("--------快速排序--------");
+        Sort sort = new QuickSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
+    @Test
+    public void testHeap() {
+        System.out.println("--------堆排序--------");
+        Sort sort = new HeapSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
 }

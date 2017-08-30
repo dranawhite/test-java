@@ -12,15 +12,17 @@ import java.util.Random;
  * <pre>
  * 随机生成5万数据，效率测试结果
  *      --------归并排序--------
- *      耗时： 18毫秒
- *      --------希尔排序--------
  *      耗时： 50毫秒
+ *      --------快速排序--------
+ *      耗时： 25毫秒
+ *      --------希尔排序--------
+ *      耗时： 28毫秒
  *      --------冒泡排序--------
- *      耗时： 12763毫秒
+ *      耗时： 16826毫秒
  *      --------插入排序--------
- *      耗时： 859毫秒
+ *      耗时： 1037毫秒
  *      --------选择排序--------
- *      耗时： 2235毫秒
+ *      耗时： 2761毫秒
  * </pre>
  *
  * @author dranawhite 2017/8/28
@@ -78,6 +80,14 @@ public class SortEffectiveTest {
     public void testShell() {
         System.out.println("--------希尔排序--------");
         SortPerformProxy sortPerformProxy = new SortPerformProxy(new ShellSort());
+        Sort sort = sortPerformProxy.getSort();
+        sort.sort(arrs);
+    }
+
+    @Test
+    public void testQuick() {
+        System.out.println("--------快速排序--------");
+        SortPerformProxy sortPerformProxy = new SortPerformProxy(new QuickSort());
         Sort sort = sortPerformProxy.getSort();
         sort.sort(arrs);
     }
