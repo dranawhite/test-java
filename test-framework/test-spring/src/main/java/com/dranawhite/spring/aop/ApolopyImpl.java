@@ -3,7 +3,7 @@ package com.dranawhite.spring.aop;
 /**
  * @author liangyq 2017/8/18
  */
-class ApolopyImpl implements Apolopy {
+public class ApolopyImpl implements Apolopy {
 
     @Override
     public void sayAgain() {

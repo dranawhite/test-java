@@ -17,6 +17,7 @@
         <module>test-spring</module>
         <module>test-log</module>
         <module>test-mybatis</module>
+        <module>test-springmvc</module>
     </modules>
 
     <properties>
@@ -64,6 +65,16 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <!-- Test -->

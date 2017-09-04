@@ -6,7 +6,7 @@ package com.dranawhite.spring.aop;
  * @author dranawhite 2017/8/17
  * @version 1.0
  */
-interface Apolopy {
+public interface Apolopy {
 
     void sayAgain();
 
