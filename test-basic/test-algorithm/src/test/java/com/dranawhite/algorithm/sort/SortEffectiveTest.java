@@ -23,8 +23,9 @@ import java.util.Random;
  *      耗时： 1037毫秒
  *      --------选择排序--------
  *      耗时： 2761毫秒
+ *      --------堆排序--------
+ *      耗时： 29毫秒
  * </pre>
- *
  * @author dranawhite 2017/8/28
  * @version 1.0
  */
@@ -88,6 +89,14 @@ public class SortEffectiveTest {
     public void testQuick() {
         System.out.println("--------快速排序--------");
         SortPerformProxy sortPerformProxy = new SortPerformProxy(new QuickSort());
+        Sort sort = sortPerformProxy.getSort();
+        sort.sort(arrs);
+    }
+
+    @Test
+    public void testHeap() {
+        System.out.println("--------堆排序--------");
+        SortPerformProxy sortPerformProxy = new SortPerformProxy(new HeapSort());
         Sort sort = sortPerformProxy.getSort();
         sort.sort(arrs);
     }
