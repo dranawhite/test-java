@@ -21,26 +21,27 @@ public class HeapSort extends SelectSort {
     public void sort(Integer[] arrs) {
         // 构建一个大顶堆
         for (int i = arrs.length / 2 - 1; i >= 0; i--) {
-            buildMaxHeap(arrs, i, arrs.length - 1);
+            adjustHeap(arrs, i, arrs.length);
         }
+        SortUtils.compareAndSwap(arrs, 0, arrs.length - 1);
         // 将堆顶最大值放入到数组中，循环构建最大堆
-        for (int i = arrs.length - 1; i >= 0; i--) {
+        for (int i = arrs.length - 2; i > 0; i--) {
+            adjustHeap(arrs, 0, i + 1);
             SortUtils.compareAndSwap(arrs, 0, i);
-            buildMaxHeap(arrs, 0, i - 1);
         }
     }
 
     /**
-     * 构建最大堆
+     * 调节堆
      *
      * @param arrs
      * @param idx
      * @param len
      */
-    private void buildMaxHeap(Integer[] arrs, int idx, int len) {
+    private void adjustHeap(Integer[] arrs, int idx, int len) {
         int temp = arrs[idx];
-        for (int i = 2 * idx; i < len; i = 2 * i) {
-            if (arrs[i] < arrs[i + 1]) {
+        for (int i = 2 * idx + 1; i < len; i = 2 * i + 1) {
+            if (i + 1 < len && arrs[i] < arrs[i + 1]) {
                 i = i + 1;
             }
             if (temp >= arrs[i]) {
