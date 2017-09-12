@@ -25,6 +25,8 @@ import java.util.Random;
  *      耗时： 2761毫秒
  *      --------堆排序--------
  *      耗时： 29毫秒
+ *      --------基数排序--------
+ *      耗时： 37毫秒
  * </pre>
  * @author dranawhite 2017/8/28
  * @version 1.0
@@ -39,7 +41,7 @@ public class SortEffectiveTest {
         List<Integer> list = new ArrayList<>(num);
         for (int i = 0; i < num; i++) {
             Random random = new Random();
-            int data = random.nextInt();
+            int data = random.nextInt(Integer.MAX_VALUE);
             list.add(data);
         }
         arrs = list.toArray(new Integer[]{});
@@ -97,6 +99,14 @@ public class SortEffectiveTest {
     public void testHeap() {
         System.out.println("--------堆排序--------");
         SortPerformProxy sortPerformProxy = new SortPerformProxy(new HeapSort());
+        Sort sort = sortPerformProxy.getSort();
+        sort.sort(arrs);
+    }
+
+    @Test
+    public void testRadix() {
+        System.out.println("--------基数排序--------");
+        SortPerformProxy sortPerformProxy = new SortPerformProxy(new RadixSort());
         Sort sort = sortPerformProxy.getSort();
         sort.sort(arrs);
     }

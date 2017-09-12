@@ -23,7 +23,7 @@ package com.dranawhite.algorithm.sort;
  *      最坏情况：N(N-1)
  *
  * 图片：
- *      resources/sort/bubble.png
+ *      resources/sort/冒泡排序.png
  * </pre>
  *
  * @author dranawhite 2017/8/23

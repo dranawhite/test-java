@@ -72,4 +72,11 @@ public class SortTest {
         SortUtils.printArr(arrs);
     }
 
+    @Test
+    public void testRadix() {
+        System.out.println("--------基数排序--------");
+        Sort sort = new RadixSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
 }

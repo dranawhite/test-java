@@ -1,66 +1,58 @@
 package com.dranawhite.algorithm.sort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 算法思想：
+ *      将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次
+ * 排序。这样从最低位排序一直到最高位排序完成以后,数列就变成一个有序序列
+ *
+ * 图片：
+ *      resources/sort/基数排序.png
+ *
  * @author dranawhite 2017/9/11
  * @version 1.0
  */
-public class RadixSort {
+public class RadixSort extends ComplexSort {
 
-    int a[] = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 101, 56, 17,
-            18, 23, 34, 15, 35, 25, 53, 51 };
-
-    public RadixSort() {
-        sort(a);
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
+    @Override
+    public void sort(Integer[] arrs) {
+        radixSort(arrs, 10 , 10);
     }
 
-    public void sort(int[] array) {
-        //首先确定排序的趟数;
-        int max = array[0];
-        for (int i = 1; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
+    private void radixSort(Integer[] data, int radix, int d) {
+        // 缓存数组
+        Integer[] tmp = new Integer[data.length];
+        // buckets用于记录待排序元素的信息
+        // buckets数组定义了max-min个桶
+        int[] buckets = new int[radix];
+
+        for (int i = 0, rate = 1; i < d; i++) {
+
+            // 重置count数组，开始统计下一个关键字
+            Arrays.fill(buckets, 0);
+            // 将data中的元素完全复制到tmp数组中
+            System.arraycopy(data, 0, tmp, 0, data.length);
+
+            // 计算每个待排序数据的子关键字
+            for (int j = 0; j < data.length; j++) {
+                int subKey = (tmp[j] / rate) % radix;
+                buckets[subKey]++;
             }
-        }
-        int time = 0;
-        //判断位数;
-        while (max > 0) {
-            max /= 10;
-            time++;
+
+            for (int j = 1; j < radix; j++) {
+                buckets[j] = buckets[j] + buckets[j - 1];
+            }
+
+            // 按子关键字对指定的数据进行排序
+            for (int m = data.length - 1; m >= 0; m--) {
+                int subKey = (tmp[m] / rate) % radix;
+                data[--buckets[subKey]] = tmp[m];
+            }
+            rate *= radix;
         }
 
-        //建立10个队列;
-        List<ArrayList> queue = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            ArrayList<Integer> queue1 = new ArrayList<>();
-            queue.add(queue1);
-        }
-
-        //进行time次分配和收集;
-        for (int i = 0; i < time; i++) {
-            //分配数组元素;
-            for (int j = 0; j < array.length; j++) {
-                //得到数字的第time+1位数;
-                int x = array[j] % (int) Math.pow(10, i + 1) / (int) Math.pow(10, i);
-                ArrayList<Integer> queue2 = queue.get(x);
-                queue2.add(array[j]);
-                queue.set(x, queue2);
-            }
-            int count = 0;//元素计数器;
-            //收集队列元素;
-            for (int k = 0; k < 10; k++) {
-                while (queue.get(k).size() > 0) {
-                    ArrayList<Integer> queue3 = queue.get(k);
-                    array[count] = queue3.get(0);
-                    queue3.remove(0);
-                    count++;
-                }
-            }
-        }
     }
 }
