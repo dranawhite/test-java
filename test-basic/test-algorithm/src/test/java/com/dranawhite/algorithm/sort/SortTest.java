@@ -79,4 +79,12 @@ public class SortTest {
         sort.sort(arrs);
         SortUtils.printArr(arrs);
     }
+
+    @Test
+    public void testBucket() {
+        System.out.println("--------桶排序--------");
+        Sort sort = new BucketSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
 }

@@ -1,16 +1,17 @@
 package com.dranawhite.algorithm.sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
+ * 基数排序
+ * <pre>
  * 算法思想：
  *      将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次
  * 排序。这样从最低位排序一直到最高位排序完成以后,数列就变成一个有序序列
  *
  * 图片：
  *      resources/sort/基数排序.png
+ * </pre>
  *
  * @author dranawhite 2017/9/11
  * @version 1.0
