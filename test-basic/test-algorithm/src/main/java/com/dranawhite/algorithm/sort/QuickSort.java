@@ -18,7 +18,7 @@ package com.dranawhite.algorithm.sort;
  * @author dranawhite 2017/8/28
  * @version 1.0
  */
-public class QuickSort extends BubbleSort {
+public class QuickSort extends MergeSort {
 
     @Override
     public void sort(Integer[] arrs) {

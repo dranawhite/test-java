@@ -37,7 +37,7 @@ public class SortEffectiveTest {
 
     @Before
     public void init() {
-        int num = 50000;
+        int num = 100000;
         List<Integer> list = new ArrayList<>(num);
         for (int i = 0; i < num; i++) {
             Random random = new Random();
@@ -106,6 +106,14 @@ public class SortEffectiveTest {
     @Test
     public void testRadix() {
         System.out.println("--------基数排序--------");
+        SortPerformProxy sortPerformProxy = new SortPerformProxy(new RadixSort());
+        Sort sort = sortPerformProxy.getSort();
+        sort.sort(arrs);
+    }
+
+    @Test
+    public void testJdk() {
+        System.out.println("--------JDK自带排序--------");
         SortPerformProxy sortPerformProxy = new SortPerformProxy(new RadixSort());
         Sort sort = sortPerformProxy.getSort();
         sort.sort(arrs);

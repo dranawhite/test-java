@@ -3,6 +3,8 @@ package com.dranawhite.algorithm.sort;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 /**
  * @author dranawhite 2017/8/23
  * @version 1.0
@@ -84,6 +86,14 @@ public class SortTest {
     public void testBucket() {
         System.out.println("--------桶排序--------");
         Sort sort = new BucketSort();
+        sort.sort(arrs);
+        SortUtils.printArr(arrs);
+    }
+
+    @Test
+    public void testJdk() {
+        System.out.println("--------JDK排序--------");
+        Sort sort = new JdkSort();
         sort.sort(arrs);
         SortUtils.printArr(arrs);
     }
