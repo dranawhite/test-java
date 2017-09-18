@@ -4,6 +4,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 /**
+ * 日志的输出级别是由日志记录器的级别和输出源级别共同决定的
+ *
  * @author dranawhite 2017/8/21
  * @version 1.0
  */
