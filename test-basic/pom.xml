@@ -17,7 +17,6 @@
         <module>test-structure</module>
         <module>test-algorithm</module>
         <module>test-concurrent</module>
-        <module>test-net</module>
     </modules>
 
 </project>
