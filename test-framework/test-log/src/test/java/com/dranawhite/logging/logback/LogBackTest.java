@@ -1,14 +1,14 @@
-package com.dranawhite.logging.log4j1;
+package com.dranawhite.logging.logback;
 
 import org.junit.Test;
 
 /**
- * @author dranawhite 2017/8/21
+ * @author dranawhite 2017/9/18
  * @version 1.0
  */
-public class Log4j1LoggerTest {
+public class LogBackTest {
 
-    private static final Log4j1Logger logger = new Log4j1Logger();
+    private static final LogBackLogger logger = new LogBackLogger();
 
     @Test
     public void testInfo() {
@@ -24,5 +24,4 @@ public class Log4j1LoggerTest {
     public void testWarn() {
         logger.warn();
     }
-
 }
