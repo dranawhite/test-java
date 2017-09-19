@@ -10,8 +10,6 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>test-core</module>
-        <module>test-common</module>
         <module>test-basic</module>
         <module>test-pattern</module>
         <module>test-framework</module>
