@@ -6,7 +6,7 @@ import org.junit.Test;
  * @author dranawhite 2017/8/9
  * @version 1.0
  */
-class PersonTest {
+public class PersonTest {
 
     @Test
     public void testSay_Dynamicproxy() {
