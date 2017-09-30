@@ -20,7 +20,33 @@
         <setting name="autoMappingBehavior" value="FULL"/>
         <!-- 数据库超过25000秒仍未响应则超时 -->
         <setting name="defaultStatementTimeout" value="25000"/>
+        <!-- 开启控制台SQL日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
 
-    <typeAliases></typeAliases>
+    <!-- 别名 -->
+    <typeAliases>
+        <typeAlias alias="Person" type="com.dranawhite.mybatis.model.PersonPO"/>
+    </typeAliases>
+
+    <!-- 默认是Dev环境 -->
+    <environments default="dev">
+        <!-- 每个数据库对应一个SqlSessionFactory实例 -->
+        <environment id="dev">
+            <!-- 使用JDBC来提交和回滚设置 -->
+            <transactionManager type="JDBC"/>
+            <!-- 使用连接池，默认10个链接 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+                <property name="url" value="jdbc:derby:derby"/>
+                <property name="username" value="scott"/>
+                <property name="password" value="tiger"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- Mapper文件映射 -->
+    <mappers>
+        <mapper resource="mapper/PersonPOMapper.xml"/>
+    </mappers>
 </configuration>

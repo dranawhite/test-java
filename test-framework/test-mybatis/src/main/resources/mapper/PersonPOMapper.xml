@@ -2,11 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dranawhite.mybatis.dao.PersonPOMapper">
-    <resultMap id="BaseResultMap" type="com.dranawhite.mybatis.model.PersonPO">
+    <resultMap id="BaseResultMap" type="Person">
         <result column="ID" jdbcType="INTEGER" property="id"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="AGE" jdbcType="INTEGER" property="age"/>
         <result column="PHONE" jdbcType="VARCHAR" property="phone"/>
         <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
     </resultMap>
+
+    <insert id="insertPerson" parameterType="Person">
+        INSERT INTO T_PERSON (ID, NAME, AGE, PHONE, ADDRESS)
+        VALUES
+            (
+                #{id, jdbcType = INTEGER},
+                #{name, jdbcType = VARCHAR},
+                #{age, jdbcType = INTEGER},
+                #{phone, jdbcType = VARCHAR},
+                #{address, jdbcType = VARCHAR}
+            )
+    </insert>
 </mapper>
