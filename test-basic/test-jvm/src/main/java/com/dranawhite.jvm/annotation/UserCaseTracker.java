@@ -16,9 +16,9 @@ class UserCaseTracker {
     public void annotation(Class cls) {
         Method[] methods = cls.getDeclaredMethods();
         for (Method method : methods) {
-            Annotation[] annotation = method.getAnnotationsByType(UserCase.class);
+            Annotation annotation = method.getAnnotation(UserCase.class);
             if (annotation != null) {
-                UserCase userCase = (UserCase) annotation[0];
+                UserCase userCase = (UserCase) annotation;
                 System.out.println("ID: " + userCase.id());
                 System.out.println("DESC: " + userCase.description());
             }

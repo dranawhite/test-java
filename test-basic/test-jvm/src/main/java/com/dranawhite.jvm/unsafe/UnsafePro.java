@@ -14,7 +14,7 @@ import sun.misc.Unsafe;
 public class UnsafePro {
 
     public static void main(String[] args) {
-        Unsafe unsafe = Unsafe.getUnsafe();
+        Unsafe unsafe = UnsafeFactory.getUnsafe();
         System.out.println(unsafe);
     }
 
