@@ -39,7 +39,7 @@ import java.io.IOException;
  */
 public class ExceptionPro {
 
-    public void test() {
+    public void tryPro() {
         try {
             int i = 4;
             if (i == 4) {
@@ -49,6 +49,18 @@ public class ExceptionPro {
         } catch(IOException e) {
             //do nothing.
         }
+    }
+
+    public void tryMethodPro() {
+        try {
+            exceptionMethod();
+        } catch (IOException e) {
+            //do nothing
+        }
+    }
+
+    private void exceptionMethod() throws IOException {
+        throw new IOException();
     }
 
 }
