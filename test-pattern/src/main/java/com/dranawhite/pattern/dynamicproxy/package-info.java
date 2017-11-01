@@ -8,6 +8,8 @@
  *      4）将对应的字节码转换为对应的class对象；
  *      5）创建InvocationHandler实例handler，用来处理Proxy所有方法调用；
  *      6）Proxy的class对象以创建的handler对象为参数，实例化一个proxy对象；
+ *
+ *      该包中包含两种动态代理的设计：JDK自带动态代理和CGLIB动态代理（CGLIB动态代理无需实现一个接口）
  * </pre>
  *
  * @author dranawhite 2017/8/9
