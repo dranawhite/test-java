@@ -26,5 +26,16 @@
             <groupId>com.dranawhite</groupId>
             <artifactId>test-common</artifactId>
         </dependency>
+        <!-- SPI对数据库依赖 -->
+        <dependency>
+            <groupId>ojdbc</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>6</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.3</version>
+        </dependency>
     </dependencies>
 </project>

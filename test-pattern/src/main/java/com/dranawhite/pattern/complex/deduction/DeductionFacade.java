@@ -9,12 +9,15 @@ package com.dranawhite.pattern.complex.deduction;
 public class DeductionFacade {
 
     public static Card deduct(Card card, Trade trade) {
-        StrategyManage reg = getDeducationType(trade);    //获得消费策略
-        IDeduction deduction = StrategyFactory.getDeduction(reg);   //初始化一个消费策略 对象
-        DeductionContext context = new DeductionContext(deduction);    //执行封装
-        context.exec(card, trade);    //执行扣款
+        //获得消费策略
+        StrategyManage reg = getDeducationType(trade);
+        //初始化一个消费策略 对象
+        IDeduction deduction = StrategyFactory.getDeduction(reg);
+        //执行封装
+        DeductionContext context = new DeductionContext(deduction);
+        //执行扣款
+        context.exec(card, trade);
         return card;
-
     }
 
     private static StrategyManage getDeducationType(Trade trade) {
