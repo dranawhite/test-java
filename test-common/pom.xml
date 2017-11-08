@@ -12,7 +12,7 @@
     <artifactId>test-common</artifactId>
 
     <dependencies>
-        <!-- Apache POI组件 -->
+        <!-- Apache POI组件(Excel操作) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
