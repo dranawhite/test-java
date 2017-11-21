@@ -12,7 +12,7 @@
     <bean id="person" class="com.dranawhite.spring.core.Person">
         <property name="id" value="${id}" />
         <property name="age" value="${age}" />
-        <property name="name" value="${name}" />
+        <property name="name" value="${test.spring-maven}" />
     </bean>
 
 </beans>

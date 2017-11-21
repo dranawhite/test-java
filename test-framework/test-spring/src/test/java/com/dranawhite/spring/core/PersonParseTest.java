@@ -22,6 +22,7 @@ public class PersonParseTest {
     @Test
     public void testPerson() {
         person = (Person) ctx.getBean("person");
+        System.out.println(person.toString());
         Assert.assertNotNull(person);
     }
 
