@@ -11,6 +11,8 @@
 
     <artifactId>test-springmvc</artifactId>
 
+    <packaging>war</packaging>
+
     <dependencies>
         <!-- Servlet -->
         <dependency>
@@ -23,6 +25,13 @@
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <!-- jstl -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
+            <scope>provided</scope>
+            <version>RELEASE</version>
         </dependency>
         <!-- Spring Framework -->
         <dependency>
