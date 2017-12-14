@@ -13,10 +13,14 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
 
     <!-- 配置视图解析器 -->
+    <!-- InternalResourceViewResolver用于支持Servlet、JSP视图解析 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="1" />
+        <!-- JstlView表示JSP模板页面需要使用JSTL标签库，classpath中必须包含jstl相关的jar包 -->
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <!-- 查找视图页面的前缀 -->
         <property name="prefix" value="/WEB-INF/views/" />
+        <!-- 查找视图页面的后缀 -->
         <property name="suffix" value=".jsp" />
     </bean>
 
