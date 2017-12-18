@@ -47,4 +47,23 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- Tomcat插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <!-- Tomcat端口号 -->
+                    <port>8080</port>
+                    <!-- URL按照UTF-8进行编码 -->
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <finalName>testForum</finalName>
+                    <!-- setting.xml中配置的Server ID -->
+                    <server>TomcatServer</server>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

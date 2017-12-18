@@ -27,6 +27,9 @@
         <junit.version>4.12</junit.version>
         <!-- 2.20.1版本，适用于JUnit 4.7+ -->
         <surefire.version>2.20.1</surefire.version>
+        <!-- 1.3.1版本，适用于MyBatis 3.4.0+; Spring 3.0.0+ -->
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <app.path>http://99.48.58.98:8080/testForum</app.path>
     </properties>
 
     <dependencies>
@@ -92,10 +95,18 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
+        <!-- Mybatis-Spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Surefire测试插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -104,6 +115,21 @@
                 <configuration>
                     <parallel>classesAndMethods</parallel>
                     <threadCount>10</threadCount>
+                </configuration>
+            </plugin>
+            <!-- Tomcat插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <!-- Tomcat端口号 -->
+                    <port>8080</port>
+                    <!-- URL按照UTF-8进行编码 -->
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <finalName>testForum</finalName>
+                    <!-- setting.xml中配置的Server ID -->
+                    <server>TomcatServer</server>
                 </configuration>
             </plugin>
         </plugins>
