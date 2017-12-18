@@ -14,6 +14,11 @@ import java.io.InputStream;
  * ?    表示单个字符
  * *    表示任意字符
  * **   表示多层路径
+ *
+ * 图片：/docs/resource/Spring资源加载器类图.png
+ * 详解：
+ *      ResourceLoader              不支持ANT风格的路径
+ *      ResourcePatternResolver     开始支持ANT风格的路径
  * </pre>
  *
  * @author dranawhite 2017/12/18
