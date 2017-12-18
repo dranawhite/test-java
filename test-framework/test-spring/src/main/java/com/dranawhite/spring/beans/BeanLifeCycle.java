@@ -29,7 +29,7 @@ public class BeanLifeCycle {
 
         //①下面两句装载配置文件并启动容器
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource res = resolver.getResource("classpath:beans/applicationContext-beans.xml");
+        Resource res = resolver.getResource("classpath:beans/beanFactory-beans.xml");
 
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
