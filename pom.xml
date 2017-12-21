@@ -14,7 +14,6 @@
         <module>test-pattern</module>
         <module>test-framework</module>
         <module>test-web</module>
-        <module>test-masm</module>
         <module>test-common</module>
         <module>test-core</module>
         <module>test-forum</module>

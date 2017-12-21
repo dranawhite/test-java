@@ -19,6 +19,7 @@
         <module>test-mybatis</module>
         <module>test-springmvc</module>
         <module>test-catalina</module>
+        <module>test-hibernate</module>
     </modules>
 
     <properties>
