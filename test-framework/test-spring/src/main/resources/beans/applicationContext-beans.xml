@@ -12,12 +12,12 @@
 
     <context:property-placeholder location="classpath:core/person.properties" />
 
-    <bean id="car" class="com.dranawhite.spring.beans.Car" init-method="myInit" destroy-method="myDestory"
+    <bean id="car" class="com.dranawhite.spring.beans.bean.Car" init-method="myInit" destroy-method="myDestory"
           p:brand="红旗CA72" p:maxSpeed="200" />
 
     <!-- 注册工厂后置处理器 -->
-    <bean class="com.dranawhite.spring.beans.CarBeanFactoryPostProcessor" />
+    <bean class="com.dranawhite.spring.beans.Processor.CarBeanFactoryPostProcessor" />
     <!-- 注册后置处理器 -->
-    <bean class="com.dranawhite.spring.beans.CarBeanPostProcessor" />
+    <bean class="com.dranawhite.spring.beans.Processor.CarBeanPostProcessor" />
 
 </beans>

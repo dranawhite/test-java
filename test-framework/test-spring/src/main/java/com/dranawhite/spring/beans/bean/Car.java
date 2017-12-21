@@ -1,4 +1,4 @@
-package com.dranawhite.spring.beans;
+package com.dranawhite.spring.beans.bean;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -9,6 +9,9 @@ import org.springframework.beans.factory.InitializingBean;
 
 /**
  * 实现所有bean级生命周期接口
+ * <pre>
+ *     用于研究Bean的生命周期
+ * </pre>
  *
  * @author liangyq 2017/12/18
  */

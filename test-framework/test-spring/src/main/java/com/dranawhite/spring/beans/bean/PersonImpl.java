@@ -1,4 +1,4 @@
-package com.dranawhite.spring.beans;
+package com.dranawhite.spring.beans.bean;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  */
 @Component
-@Order(2)
-public class Person implements IPerson {
+@Order(1)
+public class PersonImpl implements IPerson  {
 
     @Override
     public String sleep() {
-        return "I am sleeping!";
+        return "I do not want to sleep!";
     }
 }

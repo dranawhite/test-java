@@ -1,5 +1,8 @@
 package com.dranawhite.spring.beans;
 
+import com.dranawhite.spring.beans.Processor.CarBeanPostProcessor;
+import com.dranawhite.spring.beans.Processor.CarInstantiationAwareBeanPostProcessor;
+import com.dranawhite.spring.beans.bean.Car;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.Resource;
@@ -7,21 +10,11 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 /**
- *  InstantiationAwareBeanPostProcessor.postProcessBeforeInstantiation
- *  调用Car()构造函数。
- *  InstantiationAwareBeanPostProcessor.postProcessAfterInstantiation
- *  InstantiationAwareBeanPostProcessor.postProcessPropertyValues
- *  调用setBrand()设置属性。
- *  调用BeanNameAware.setBeanName()。
- *  调用BeanFactoryAware.setBeanFactory()。
- *  调用BeanPostProcessor.postProcessBeforeInitialization()，color为空，设置为默认黑色。
- *  调用InitializingBean.afterPropertiesSet()。
- *  调用myInit()，将maxSpeed设置为240。
- *  调用BeanPostProcessor.postProcessAfterInitialization()，将maxSpeed调整为200。
- *  introduce:brand:红旗CA72/color:黑色/maxSpeed:200
- *  car1==car2:true
- *  调用DisposableBean.destory()。
- *  调用myDestroy()。
+ *  探究Bean级生命周期
+ *  <pre>
+ *      BeanFactory必须手动指定后置处理器，而ApplicationContext会通过反射自动映射，只要配置中配置即可
+ *  </pre>
+ *
  */
 public class BeanLifeCycle {
 

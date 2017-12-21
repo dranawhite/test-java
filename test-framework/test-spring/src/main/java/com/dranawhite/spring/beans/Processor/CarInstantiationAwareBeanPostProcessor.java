@@ -1,4 +1,4 @@
-package com.dranawhite.spring.beans;
+package com.dranawhite.spring.beans.Processor;
 
 import java.beans.PropertyDescriptor;
 
