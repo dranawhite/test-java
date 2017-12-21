@@ -10,6 +10,18 @@ SHOW CREATE DATABASE orcl;
 SHOW CREATE TABLE T_POST;
 -- 查看当前登录用户的权限
 SHOW GRANTS FOR root;
+-- 查看当前数据库连接数，只列出前100条
+SHOW PROCESSLIST;
+-- 查看当前数据库连接数，列出全部
+SHOW FULL PROCESSLIST;
+-- 查看INNODB引擎运行信息
+SHOW ENGINE INNODB STATUS;
+-- 查看服务器运行状态
+SHOW STATUS;
+-- 查看服务器系统参数
+SHOW VARIABLES LIKE '%quer%';
+-- 查看打开的表状态
+SHOW OPEN TABLES;
 -- 选择ORCL作为当前数据库
 USE orcl;
 
