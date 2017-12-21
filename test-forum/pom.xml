@@ -15,22 +15,8 @@
     <description>模拟论坛程序</description>
 
     <properties>
-        <file.encoding>UTF-8</file.encoding>
-        <spring.version>4.3.13.RELEASE</spring.version>
-        <!-- 8.0版本，适用于MySql 5.5,5.6,5.7,8.0; JDK 1.8+; JDBC 4.2 -->
-        <mysql.version>8.0.8-dmr</mysql.version>
-        <!-- 3.1版本，适用于J2EE 7.0 -->
-        <servlet.version>3.1.0</servlet.version>
-        <!-- 1.7.25版本，适用于JDK 1.7+ -->
-        <slf4j.version>1.7.25</slf4j.version>
-        <!-- 4.12版本，适用于JDK 1.7+-->
-        <junit.version>4.12</junit.version>
-        <!-- 2.20.1版本，适用于JUnit 4.7+ -->
-        <surefire.version>2.20.1</surefire.version>
         <!-- 1.3.1版本，适用于MyBatis 3.4.0+; Spring 3.0.0+ -->
         <mybatis-spring.version>1.3.1</mybatis-spring.version>
-        <commons-lang.version>2.6</commons-lang.version>
-        <app.path>http://99.48.58.98:8080/testForum</app.path>
     </properties>
 
     <dependencies>
@@ -38,78 +24,62 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
         </dependency>
 
         <!-- Database -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
         </dependency>
 
         <!-- Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- Mybatis-Spring -->
@@ -121,9 +91,8 @@
 
         <!-- Apache Commons -->
         <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>${commons-lang.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 
@@ -133,27 +102,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.version}</version>
-                <!-- 开启10个线程并发运行单元测试 -->
-                <configuration>
-                    <parallel>classesAndMethods</parallel>
-                    <threadCount>10</threadCount>
-                </configuration>
             </plugin>
             <!-- Tomcat插件 -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <!-- Tomcat端口号 -->
-                    <port>8080</port>
-                    <!-- URL按照UTF-8进行编码 -->
-                    <uriEncoding>UTF-8</uriEncoding>
-                    <finalName>testForum</finalName>
-                    <!-- setting.xml中配置的Server ID -->
-                    <server>TomcatServer</server>
-                </configuration>
             </plugin>
         </plugins>
     </build>

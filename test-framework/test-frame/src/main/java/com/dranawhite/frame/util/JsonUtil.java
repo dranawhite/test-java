@@ -1,6 +1,6 @@
 package com.dranawhite.frame.util;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,8 +12,6 @@ public final class JsonUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonUtil.class);
 
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
     /**
      * 将POJO转为JSON
      * @param obj
@@ -23,7 +21,7 @@ public final class JsonUtil {
     public static <T> String toJson(T obj) {
         String json;
         try {
-            json = OBJECT_MAPPER.writeValueAsString(obj);
+            json = JSON.toJSONString(obj);
         } catch (Exception e) {
             LOGGER.error("FRAME-convert POJO to JSON failure", e);
             throw new RuntimeException(e);
@@ -34,7 +32,7 @@ public final class JsonUtil {
     public static <T> T fromJson(String json, Class<T> type) {
         T pojo;
         try {
-            pojo = OBJECT_MAPPER.readValue(json, type);
+            pojo = JSON.parseObject(json, type);
         } catch (Exception e) {
             LOGGER.error("FRAME-convert JSON to POJO failure", e);
             throw new RuntimeException(e);
