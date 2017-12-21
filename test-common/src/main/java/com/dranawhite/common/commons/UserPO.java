@@ -1,4 +1,4 @@
-package com.forum.user.domain;
+package com.dranawhite.common.commons;
 
 import java.util.Date;
 
@@ -8,9 +8,7 @@ import java.util.Date;
  * @author dranawhite 2017/12/18
  * @version 1.0
  */
-public class UserPO extends BaseDomain {
-
-    private static final long serialVersionUID = 4403880330781924918L;
+public class UserPO {
 
     /**
      * 用户ID

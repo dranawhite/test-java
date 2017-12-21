@@ -1,6 +1,5 @@
 package com.forum.user.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +8,7 @@ import java.util.Date;
  * @author dranawhite 2017/12/18
  * @version 1.0
  */
-public class LoginLogPO implements Serializable {
+public class LoginLogPO extends BaseDomain {
 
     private static final long serialVersionUID = -2044912558232703083L;
 

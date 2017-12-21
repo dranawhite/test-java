@@ -26,12 +26,12 @@ public class ForEachTest {
      *       12: invokeinterface #4,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
      *       17: ifeq          40
      *       20: aload_2
-     *       21: invokeinterface #5,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
-     *       26: checkcast     #6                  // class java/lang/Integer
+     *       21: invokeinterface #5,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/commons/Object;
+     *       26: checkcast     #6                  // class java/commons/Integer
      *       29: astore_3
-     *       30: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+     *       30: getstatic     #7                  // Field java/commons/System.out:Ljava/io/PrintStream;
      *       33: aload_3
-     *       34: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+     *       34: invokevirtual #8                  // Method java/io/PrintStream.println:(Ljava/commons/Object;)V
      *       37: goto          11
      *       40: return
      * </pre>
@@ -46,7 +46,7 @@ public class ForEachTest {
     /**
      * 编译字节码如下，对于数组foreach底层是用for循环实现
      * <pre>
-     *      0: invokestatic  #7                  // Method com/dranawhite/jvm/collection/ForEach.getArray:()[Ljava/lang/Integer;
+     *      0: invokestatic  #7                  // Method com/dranawhite/jvm/collection/ForEach.getArray:()[Ljava/commons/Integer;
      *       3: astore_1
      *       4: aload_1
      *       5: astore_2

@@ -29,6 +29,7 @@
         <surefire.version>2.20.1</surefire.version>
         <!-- 1.3.1版本，适用于MyBatis 3.4.0+; Spring 3.0.0+ -->
         <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <commons-lang.version>2.6</commons-lang.version>
         <app.path>http://99.48.58.98:8080/testForum</app.path>
     </properties>
 
@@ -116,6 +117,13 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <!-- Apache Commons -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
         </dependency>
     </dependencies>
 

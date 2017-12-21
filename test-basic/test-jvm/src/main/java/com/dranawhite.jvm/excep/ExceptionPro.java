@@ -7,11 +7,11 @@ import java.io.IOException;
  * <pre>
  *     字节码如下：
  *     Constant pool:
- * #1 = Methodref          #5.#21         // java/lang/Object."<init>":()V
+ * #1 = Methodref          #5.#21         // java/commons/Object."<init>":()V
  * #2 = Class              #22            // java/io/IOException
  * #3 = Methodref          #2.#21         // java/io/IOException."<init>":()V
  * #4 = Class              #23            // com/dranawhite/jvm/excep/ExceptionPro
- * #5 = Class              #24            // java/lang/Object
+ * #5 = Class              #24            // java/commons/Object
  * #6 = Utf8               <init>
  * #7 = Utf8               ()V
  * #8 = Utf8               Code
@@ -30,7 +30,7 @@ import java.io.IOException;
  * #21 = NameAndType        #6:#7          // "<init>":()V
  * #22 = Utf8               java/io/IOException
  * #23 = Utf8               com/dranawhite/jvm/excep/ExceptionPro
- * #24 = Utf8               java/lang/Object
+ * #24 = Utf8               java/commons/Object
 
  * </pre>
  *

@@ -21,7 +21,7 @@ class Assert {
    }
 
     /**
-     * 断言不成立，报java.lang.AssertionError
+     * 断言不成立，报java.commons.AssertionError
      */
    public static void assertFail() {
        int m = 9;

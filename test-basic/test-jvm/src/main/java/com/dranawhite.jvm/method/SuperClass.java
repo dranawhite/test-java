@@ -17,13 +17,13 @@ abstract class SuperClass {
      *      </li>
      *      <li>
      *          如果在类型C中找到了与常量中的描述符和简单名称都相符的方法，则进行访问权限校验，如果通过则返回这个方法的直接
-     *      引用，查找过程结束；如果不通过，则返回java.lang.IllegalAccessError异常；
+     *      引用，查找过程结束；如果不通过，则返回java.commons.IllegalAccessError异常；
      *      </li>
      *      <li>
      *          否则，按照继承关系从下往上依次对C的各个父类进行第二步的搜索和验证过程；
      *      </li>
      *      <li>
-     *          如果始终没有找到合适的方法，则抛出java.lang.AbstractMethodError异常；
+     *          如果始终没有找到合适的方法，则抛出java.commons.AbstractMethodError异常；
      *      </li>
      * </ol>
      *
