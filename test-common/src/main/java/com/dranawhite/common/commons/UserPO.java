@@ -8,7 +8,7 @@ import java.util.Date;
  * @author dranawhite 2017/12/18
  * @version 1.0
  */
-public class UserPO {
+public class UserPO extends BasePO {
 
     /**
      * 用户ID

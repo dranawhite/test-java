@@ -37,6 +37,22 @@ public class UserPOTest {
     }
 
     @Test
+    public void testToString_style_extends() {
+        UserPO userPO = new UserPO();
+        userPO.setUserId(1);
+        userPO.setUserName("tom");
+        userPO.setPassword("123456");
+        userPO.setDesc("description");
+        userPO.setId(1001);
+
+        String result = ToStringBuilder.reflectionToString(userPO, ToStringStyle
+                .SHORT_PREFIX_STYLE);
+        final String excepted = "UserPO[userId=1,userName=tom,credits=0,password=123456,"
+                + "lastVisit=<null>,lastIp=<null>,id=1001,desc=description]";
+        Assert.assertEquals(excepted, result);
+    }
+
+    @Test
     public void testToString_append() {
         String userStr = new ToStringBuilder(user, ToStringStyle.SHORT_PREFIX_STYLE)
                 .append("userId", 1).append("userName", "tom")
