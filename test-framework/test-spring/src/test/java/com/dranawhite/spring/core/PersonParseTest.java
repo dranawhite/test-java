@@ -13,21 +13,18 @@ import java.io.IOException;
  */
 public class PersonParseTest {
 
-    private Person person;
-    private static ClassPathXmlApplicationContext ctx;
-
-    @BeforeClass
-    public static void init() {
-        ctx = new ClassPathXmlApplicationContext("classpath:core/applicationContext-core.xml");
-    }
-
     @Test
     public void testPerson() {
-        person = (Person) ctx.getBean("person");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:core/applicationContext-core.xml");
+        Person person = (Person) ctx.getBean("person");
         System.out.println(person.toString());
         Assert.assertNotNull(person);
     }
 
+    /**
+     * 代码的方式加载Bean
+     * @throws IOException
+     */
     @Test
     public void testPersonLoader() throws IOException {
         DefaultBeanLoaderPro pro = new DefaultBeanLoaderPro();
@@ -35,6 +32,9 @@ public class PersonParseTest {
         Assert.assertNotNull(pn);
     }
 
+    /**
+     * 使用Java类的方式配置bean
+     */
     @Test
     public void testPersonAnnoLoader() {
         AnnoConfigurableLoaderPro pro = new AnnoConfigurableLoaderPro();

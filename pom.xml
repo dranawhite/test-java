@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dranawhite</groupId>
@@ -10,83 +10,230 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>test-common</module>
+        <module>test-core</module>
         <module>test-basic</module>
         <module>test-pattern</module>
         <module>test-framework</module>
         <module>test-web</module>
-        <module>test-masm</module>
-        <module>test-common</module>
-        <module>test-core</module>
         <module>test-forum</module>
     </modules>
 
     <properties>
         <encoding>UTF-8</encoding>
+        <!-- 3.7版本，适用于JDK 1.7+ -->
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <!-- 4.1版本，适用于JDK 1.6+ -->
+        <commons-collection4.version>4.1</commons-collection4.version>
+        <spring.version>4.3.13.RELEASE</spring.version>
+        <!-- 8.0版本，适用于MySql 5.5,5.6,5.7,8.0; JDK 1.8+; JDBC 4.2 -->
+        <mysql.version>8.0.8-dmr</mysql.version>
+        <derby.version>10.13.1.1</derby.version>
+        <oracle.version>6</oracle.version>
+        <!-- 3.1版本，适用于J2EE 7.0 -->
+        <servlet.version>3.1.0</servlet.version>
+        <jsp.version>2.2</jsp.version>
+        <jstl.version>1.2</jstl.version>
+        <!-- 1.7.25版本，适用于JDK 1.7+ -->
+        <slf4j.version>1.7.25</slf4j.version>
+        <slf4j-log4j.version>1.7.7</slf4j-log4j.version>
+        <log4j1.version>1.2.17</log4j1.version>
+        <logback.version>1.2.3</logback.version>
+        <!-- 4.12版本，适用于JDK 1.7+-->
+        <junit.version>4.12</junit.version>
+        <!-- 2.20.1版本，适用于JUnit 4.7+ -->
+        <surefire.version>2.20.1</surefire.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- JUnit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
-            </dependency>
-            <!-- SLF4J -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.7</version>
-            </dependency>
-            <!-- Apache Commons Lang -->
+            <!-- Apache Commons -->
+            <!-- Apache Commons Lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.3.2</version>
+                <version>${commons-lang3.version}</version>
+                <scope>compile</scope>
             </dependency>
-            <!-- Apache Commons Collections -->
+            <!-- Apache Commons Collections4 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
-                <version>4.0</version>
+                <version>${commons-collection4.version}</version>
+                <scope>compile</scope>
             </dependency>
-            <!-- Apache Commons DbUtils -->
+
+            <!-- Spring Framework -->
             <dependency>
-                <groupId>commons-dbutils</groupId>
-                <artifactId>commons-dbutils</artifactId>
-                <version>1.6</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
             </dependency>
-            <!-- Apache DBCP -->
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-dbcp2</artifactId>
-                <version>2.0.1</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
             </dependency>
-            <!-- derby -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-cache</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- Test -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Logging -->
+            <!-- SLF4J -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!-- slf4j-log4j1 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j-log4j.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j1.version}</version>
+            </dependency>
+            <!-- logback -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- Database -->
+            <!-- Derby -->
             <dependency>
                 <groupId>org.apache.derby</groupId>
                 <artifactId>derby</artifactId>
-                <version>10.13.1.1</version>
+                <version>${derby.version}</version>
+                <scope>runtime</scope>
             </dependency>
+            <!-- Oracle -->
+            <dependency>
+                <groupId>ojdbc</groupId>
+                <artifactId>ojdbc</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
             <!-- Servlet -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>${servlet.version}</version>
                 <scope>provided</scope>
             </dependency>
+
             <!-- JSP -->
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>jsp-api</artifactId>
-                <version>2.2</version>
+                <version>${jsp.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- Jstl -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <!-- Maven将properties文件中的占位符替换为变量 -->
+        <resources>
+            <resource>
+                <!-- 指定该目录下的资源文件中的占位符会被替换 -->
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -108,8 +255,49 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <!-- 去除Maven自动生成的.MF文件 -->
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>3.0.0</version>
+                </plugin>
+                <!-- Tomcat插件 -->
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <!-- Tomcat端口号 -->
+                        <port>8080</port>
+                        <!-- URL按照UTF-8进行编码 -->
+                        <uriEncoding>UTF-8</uriEncoding>
+                        <!-- setting.xml中配置的Server ID -->
+                        <server>TomcatServer</server>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                    <!-- 开启10个线程并发运行单元测试 -->
+                    <configuration>
+                        <parallel>classesAndMethods</parallel>
+                        <threadCount>10</threadCount>
+                    </configuration>
+                </plugin>
+                <!-- MyBatis Generator -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.3.5</version>
                 </plugin>
             </plugins>
         </pluginManagement>

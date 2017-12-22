@@ -11,6 +11,8 @@
     <packaging>pom</packaging>
 
     <artifactId>test-basic</artifactId>
+    <name>test-basic</name>
+    <description>Java基础操作</description>
 
     <modules>
         <module>test-jvm</module>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>test-framework</artifactId>
         <groupId>com.dranawhite</groupId>
@@ -10,10 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>test-log</artifactId>
-
-    <properties>
-        <log4j1.version>1.2.17</log4j1.version>
-    </properties>
 
     <dependencies>
         <!-- JUnit -->
@@ -25,18 +21,15 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>LATEST</version>
         </dependency>
         <!-- LogBack日志 -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>LATEST</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>LATEST</version>
         </dependency>
     </dependencies>
 </project>

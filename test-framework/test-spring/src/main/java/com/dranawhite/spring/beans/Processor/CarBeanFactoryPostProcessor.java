@@ -1,4 +1,4 @@
-package com.dranawhite.spring.beans;
+package com.dranawhite.spring.beans.Processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;

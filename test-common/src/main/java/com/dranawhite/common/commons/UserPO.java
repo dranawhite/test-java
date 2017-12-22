@@ -3,7 +3,7 @@ package com.dranawhite.common.commons;
 import java.util.Date;
 
 /**
- * 用户
+ * 普通PO类
  *
  * @author dranawhite 2017/12/18
  * @version 1.0

@@ -1,5 +1,6 @@
-package com.dranawhite.spring.beans;
+package com.dranawhite.spring.beans.Processor;
 
+import com.dranawhite.spring.beans.bean.Car;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 

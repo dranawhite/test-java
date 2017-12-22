@@ -11,32 +11,38 @@
 
     <artifactId>test-common</artifactId>
 
+    <properties>
+        <poi.version>3.9</poi.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <xmlbeans.version>2.3.0</xmlbeans.version>
+    </properties>
+
     <dependencies>
         <!-- Apache POI组件(Excel操作) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.9</version>
+            <version>${poi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.9</version>
+            <version>${poi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>
-            <version>3.9</version>
+            <version>${poi.version}</version>
         </dependency>
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
+            <version>${dom4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.xmlbeans</groupId>
             <artifactId>xmlbeans</artifactId>
-            <version>2.3.0</version>
+            <version>${xmlbeans.version}</version>
         </dependency>
         <!--Junit4-->
         <dependency>
@@ -47,13 +53,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>5.0.2.RELEASE</version>
         </dependency>
         <!-- Apache Commons -->
         <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 </project>
