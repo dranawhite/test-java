@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Tomcat 一般JavaBean资源工厂 -->
+    <Resource auth="Container"
+              factory="org.apache.naming.factory.BeanFactory"
+              name="bean/MyBeanFactory"
+              type="com.dranawhite.catalina.jndi.MyBean" />
+</Context>

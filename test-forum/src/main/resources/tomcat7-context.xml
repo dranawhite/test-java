@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Tomcat 一般JavaBean资源工厂 -->
+    <Resource auth="Container"
+              factory="com.alibaba.druid.pool.DruidDataSourceFactory"
+              name="jndi/merchandisecenter"
+              type="javax.sql.DataSource"
+
+              
+              driverClassName="com.mysql.jdbc.Driver"
+
+
+              filters="stat,wall,slf4j"
+              initialSize="10"
+              logabandoned="true"
+              maxActive="50"
+              maxWait="10000"
+              minEvictableIdleTimeMillis="300000"
+              minIdle="10"
+
+              password="5tgb^YHN"
+              removeabandoned="true"
+              removeabandonedtimeout="180"
+              timeBetweenEvictionRunsMillis="60000"
+
+              url="jdbc:mysql://99.48.66.40:3306/merchandisecenter?characterEncoding=utf-8"
+              username="application_sit" />
+</Context>
