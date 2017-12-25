@@ -26,23 +26,21 @@ import javax.sql.DataSource;
 @WebServlet("/jndiServlet")
 public class JndiPro extends HttpServlet {
 
-    private Connection getConnByJndi() {
+    private MyBean getBeanByJndi() {
         try {
             Context ctx = new InitialContext();
             Context envContext = (Context) ctx.lookup("java:comp/env");
-            DataSource ds = (DataSource) envContext.lookup("jndi/merchandisecenter");
-            return ds.getConnection();
+            MyBean bean = (MyBean) envContext.lookup("bean/MyBeanFactory");
+            return bean;
         } catch (NamingException ne) {
             ne.printStackTrace();
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
         }
         return null;
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-        Connection conn = getConnByJndi();
-        System.out.println(conn);
+        MyBean bean = getBeanByJndi();
+        System.out.println(bean.toString());
     }
 }

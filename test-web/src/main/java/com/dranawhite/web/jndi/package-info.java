@@ -27,4 +27,4 @@
  * @author liangyq 2017/12/26
  */
 
-package com.dranawhite.catalina.jndi;
+package com.dranawhite.web.jndi;

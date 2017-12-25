@@ -1,4 +1,7 @@
-package com.dranawhite.catalina.jndi;
+package com.dranawhite.web.jndi;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * @author liangyq 2017/12/25
@@ -23,5 +26,10 @@ public class MyBean {
 
     public void setFoo(String foo) {
         this.foo = foo;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

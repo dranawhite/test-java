@@ -49,6 +49,12 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
+        <!-- Apache Commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -57,6 +63,15 @@
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <contextFile>${project.basedir}/src/main/resources/tomcat7-context.xml</contextFile>
+                    <!-- Tomcat端口号 -->
+                    <port>8080</port>
+                    <!-- URL按照UTF-8进行编码 -->
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <!-- setting.xml中配置的Server ID -->
+                    <server>TomcatServer</server>
+                </configuration>
             </plugin>
         </plugins>
     </build>
