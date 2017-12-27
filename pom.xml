@@ -23,6 +23,8 @@
         <encoding>UTF-8</encoding>
         <!-- 3.7版本，适用于JDK 1.7+ -->
         <commons-lang3.version>3.7</commons-lang3.version>
+        <!-- 1.9.3版本，适用于JDK 1.5+ -->
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <!-- 4.1版本，适用于JDK 1.6+ -->
         <commons-collection4.version>4.1</commons-collection4.version>
         <spring.version>4.3.13.RELEASE</spring.version>
@@ -48,6 +50,11 @@
     <dependencyManagement>
         <dependencies>
             <!-- Apache Commons -->
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
             <!-- Apache Commons Lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
