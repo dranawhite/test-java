@@ -29,6 +29,13 @@ public class UserService {
         return userMap.get(id);
     }
 
+    @Cacheable(cacheNames = "ehcache")
+    public User getUser(int id) {
+        //缓存的KEY默认是按照所有的入参组装而成
+        System.out.println("直接执行方法，不走缓存");
+        return userMap.get(id);
+    }
+
     public void updateUserMap(int id) {
         User user = userMap.get(id).clone();
         user.setName("tom");
