@@ -24,15 +24,15 @@ public class PersonTest {
 
     @Test
     public void testSay_Cglib() {
-        CGLibInterceptor cgLibInterceptor = new CGLibInterceptor();
-        Person person = cgLibInterceptor.getProxy(Person.class);
+        CglibInterceptor cglibInterceptor = new CglibInterceptor();
+        Person person = cglibInterceptor.getProxy(Person.class);
         person.say();
     }
 
     @Test
     public void testSayAgain_Cglib() {
-        CGLibInterceptor cgLibInterceptor = new CGLibInterceptor();
-        Person person = cgLibInterceptor.getProxy(Person.class);
+        CglibInterceptor cglibInterceptor = new CglibInterceptor();
+        Person person = cglibInterceptor.getProxy(Person.class);
         person.sayAgain();
     }
 

@@ -6,10 +6,12 @@ package com.dranawhite.pattern.dynamicproxy;
  */
 class Person implements IPerson {
 
+    @Override
     public void say() {
         System.out.println("装逼中......");
     }
 
+    @Override
     public void sayAgain() {
         System.out.println("再次装逼......");
     }
