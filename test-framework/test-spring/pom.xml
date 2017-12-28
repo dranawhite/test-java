@@ -27,7 +27,7 @@
             <artifactId>spring-beans</artifactId>
         </dependency>
         <dependency>
-            <groupId>ailk.easyframe</groupId>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-cache</artifactId>
         </dependency>
         <dependency>
