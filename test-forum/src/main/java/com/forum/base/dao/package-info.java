@@ -8,4 +8,4 @@
  * @version 1.0
  */
 
-package com.forum.user.dao;
+package com.forum.base.dao;

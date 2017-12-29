@@ -10,4 +10,4 @@
  * @version 1.0
  */
 
-package com.forum.user.domain;
+package com.forum.base.domain;

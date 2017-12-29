@@ -1,5 +1,8 @@
 package com.forum.user.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Date;
 
 /**
@@ -86,5 +89,10 @@ public class LoginLogPO extends BaseDomain {
      */
     public void setLoginTime(Date loginTime) {
         this.loginTime = loginTime;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

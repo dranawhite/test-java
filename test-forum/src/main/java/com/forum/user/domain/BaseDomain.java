@@ -6,6 +6,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 
 /**
+ * PO基类
+ *
  * @author dranawhite 2017/12/21
  * @version 1.0
  */
@@ -15,6 +17,6 @@ public abstract class BaseDomain implements Serializable {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.DEFAULT_STYLE);
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
