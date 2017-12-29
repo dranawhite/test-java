@@ -6,6 +6,7 @@
 * Spring Mvc
 * Servlet 3.1
 * Junit 4
+* PowerMock
 * Slf4j + logback
 * JDK 1.7
 * MyBatis
