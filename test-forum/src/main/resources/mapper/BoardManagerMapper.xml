@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dranawhite.forum.user.dao.BoardManagerMapper">
+    <resultMap id="BaseResultMap" type="BoardManagerPO">
+        <result column="BOARD_ID" jdbcType="INTEGER" property="boardId"/>
+        <result column="USER_ID" jdbcType="INTEGER" property="userId"/>
+    </resultMap>
+
+</mapper>

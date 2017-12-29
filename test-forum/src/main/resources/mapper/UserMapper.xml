@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dranawhite.forum.user.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="UserPO">
+        <result column="USER_ID" jdbcType="INTEGER" property="userId"/>
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName"/>
+        <result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
+        <result column="CREDITS" jdbcType="INTEGER" property="credits"/>
+        <result column="LAST_VISIT" jdbcType="TIMESTAMP" property="lastVisit"/>
+        <result column="LAST_IP" jdbcType="CHAR" property="lastIp"/>
+    </resultMap>
+
+</mapper>

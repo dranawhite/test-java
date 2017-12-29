@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dranawhite.forum.user.dao.TopicMapper">
+    <resultMap id="BaseResultMap" type="TopicPO">
+        <result column="TOPIC_ID" jdbcType="INTEGER" property="topicId"/>
+        <result column="BOARD_ID" jdbcType="INTEGER" property="boardId"/>
+        <result column="TOPIC_TITLE" jdbcType="VARCHAR" property="topicTitle"/>
+        <result column="USER_ID" jdbcType="INTEGER" property="userId"/>
+        <result column="CREATE_TIME" jdbcType="DATE" property="createTime"/>
+        <result column="LAST_POST" jdbcType="DATE" property="lastPost"/>
+        <result column="TOPIC_VIEWS" jdbcType="INTEGER" property="topicViews"/>
+        <result column="TOPIC_REPLIES" jdbcType="INTEGER" property="topicReplies"/>
+        <result column="DIGEST" jdbcType="INTEGER" property="digest"/>
+    </resultMap>
+
+</mapper>

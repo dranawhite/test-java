@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dranawhite.forum.user.dao.LoginMapper">
+    <resultMap id="BaseResultMap" type="LoginPO">
+        <result column="LOGIN_LOG_ID" jdbcType="INTEGER" property="loginLogId"/>
+        <result column="UER_ID" jdbcType="INTEGER" property="uerId"/>
+        <result column="IP" jdbcType="CHAR" property="ip"/>
+        <result column="LOGIN_TIME" jdbcType="TIMESTAMP" property="loginTime"/>
+    </resultMap>
+
+</mapper>
