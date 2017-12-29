@@ -40,10 +40,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-cache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
         </dependency>
         <dependency>
@@ -82,13 +78,15 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jsp-api</artifactId>
-        </dependency>
+        <!-- JSP -->
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jstl</artifactId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+        </dependency>
+        <!-- Jstl -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
         </dependency>
 
         <!-- Test -->
@@ -144,6 +142,33 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>ALI_YUN</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+                <!-- 高版本MySql要求使用SSL链接；设置MySql时区CST，以便与Tomcat服务器时区统一 -->
+                <url>jdbc:mysql://dranawhite.mysql.rds.aliyuncs.com:3306/orcl?characterEncoding=utf-8&amp;serverTimezone=CST&amp;userSSL=true</url>
+                <username>root</username>
+                <password>lyq10250618LYQ</password>
+            </properties>
+        </profile>
+    </profiles>
 </project>

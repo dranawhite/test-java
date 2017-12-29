@@ -5,4 +5,4 @@
  * @version 1.0
  */
 
-package com.forum.user;
+package com.dranawhite.forum.user;

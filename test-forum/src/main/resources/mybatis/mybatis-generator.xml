@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="orcl" targetRuntime="MyBatis3Simple">
+        <property name="schema" value="orcl" />
+
+        <commentGenerator>
+            <!-- 取消所有注释 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="${driverClassName}"
+                        connectionURL="${url}"
+                        userId="${username}"
+                        password="${password}"/>
+
+        <!-- 配置DOMAIN -->
+        <javaModelGenerator targetPackage="com.dranawhite.forum.user.domain"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 配置.xml -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 配置DAO -->
+        <javaClientGenerator targetPackage="com.dranawhite.forum.user.dao"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="${schema}"
+               tableName="T_TOPIC"
+               domainObjectName="TopicPO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+        </table>
+        <table schema="${schema}"
+               tableName="T_BOARD"
+               domainObjectName="BoardPO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+        </table>
+        <table schema="${schema}"
+               tableName="T_BOARD_MANAGER"
+               domainObjectName="BoardManagerPO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+        </table>
+        <table schema="${schema}"
+               tableName="T_POST"
+               domainObjectName="PostPO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+        </table>
+        <table schema="${schema}"
+               tableName="T_USER"
+               domainObjectName="UserPO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+        </table>
+        <table schema="${schema}"
+               tableName="T_LOGIN_LOG"
+               domainObjectName="LoginPO"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+        </table>
+    </context>
+</generatorConfiguration>

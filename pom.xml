@@ -39,7 +39,7 @@
         <!-- J2EE -->
         <!-- 3.1版本，适用于J2EE 7.0 -->
         <servlet.version>3.1.0</servlet.version>
-        <jsp.version>2.2</jsp.version>
+        <jsp.version>2.3.1</jsp.version>
         <jstl.version>1.2</jstl.version>
         <!-- Logging -->
         <!-- 1.7.25版本，适用于JDK 1.7+ -->
@@ -52,8 +52,6 @@
         <junit.version>4.12</junit.version>
         <powermock.version>1.6.5</powermock.version>
         <unitils.version>3.4.2</unitils.version>
-        <!-- 2.20.1版本，适用于JUnit 4.7+ -->
-        <surefire.version>2.20.1</surefire.version>
         <!-- ORM -->
         <!-- 1.3.1版本，适用于MyBatis 3.4.0+; Spring 3.0.0+ -->
         <mybatis-spring.version>1.3.1</mybatis-spring.version>
@@ -99,12 +97,6 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-cache</artifactId>
                 <version>${spring.version}</version>
                 <scope>compile</scope>
             </dependency>
@@ -284,6 +276,13 @@
                 <version>${mysql.version}</version>
             </dependency>
 
+            <!-- ORM -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
             <!-- Druid -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -302,14 +301,14 @@
             <!-- JSP -->
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
-                <artifactId>jsp-api</artifactId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
                 <version>${jsp.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Jstl -->
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>jstl</artifactId>
+                <groupId>javax.servlet.jsp.jstl</groupId>
+                <artifactId>jstl-api</artifactId>
                 <version>${jstl.version}</version>
             </dependency>
         </dependencies>
@@ -386,6 +385,7 @@
                         <uriEncoding>UTF-8</uriEncoding>
                         <!-- setting.xml中配置的Server ID -->
                         <server>TomcatServer</server>
+                        <contextFile>${project.basedir}/src/main/resources/tomcat/tomcat-context.xml</contextFile>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -403,6 +403,9 @@
                     <groupId>org.mybatis.generator</groupId>
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
                     <version>1.3.5</version>
+                    <configuration>
+                        <configurationFile>${project.basedir}/src/main/resources/mybatis/mybatis-generator.xml</configurationFile>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -23,7 +23,9 @@
             testOnReturn="false"
             poolPreparedStatements="false"
             maxPoolPreparedStatementPerConnectionSize="-1"
-            url="jdbc:mysql://dranawhite.mysql.rds.aliyuncs.com:3306/orcl?characterEncoding=utf-8"
+            url="${url}"
+            username="${username}"
+            password="${password}"
             filters="stat,wall,slf4j"
     />
 </Context>

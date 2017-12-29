@@ -1,4 +1,4 @@
-package com.forum.user.domain;
+package com.dranawhite.forum.base;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
