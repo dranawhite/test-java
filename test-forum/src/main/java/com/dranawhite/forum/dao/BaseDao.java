@@ -1,4 +1,4 @@
-package com.dranawhite.forum.base;
+package com.dranawhite.forum.dao;
 
 /**
  * @author dranawhite 2017/12/29

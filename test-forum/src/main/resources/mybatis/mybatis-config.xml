@@ -39,6 +39,6 @@
 
     <typeAliases>
         <!-- 若没有通过@Alias注解指定，则使用类名首字母小写作为别名 -->
-        <package name="com.dranawhite.forum.user.domain" />
+        <package name="com.dranawhite.forum.domain" />
     </typeAliases>
 </configuration>

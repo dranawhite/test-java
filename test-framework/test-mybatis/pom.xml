@@ -11,10 +11,6 @@
 
     <artifactId>test-mybatis</artifactId>
 
-    <properties>
-        <mybatis.version>3.4.5</mybatis.version>
-    </properties>
-
     <dependencies>
         <!-- Apache Commons -->
         <dependency>
@@ -40,7 +36,6 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>${mybatis.version}</version>
         </dependency>
         <!-- fastjson -->
         <dependency>

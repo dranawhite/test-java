@@ -1,6 +1,5 @@
-package com.dranawhite.forum.user.domain;
+package com.dranawhite.forum.domain;
 
-import com.dranawhite.forum.base.BaseDomain;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

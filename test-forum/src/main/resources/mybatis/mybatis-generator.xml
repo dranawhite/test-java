@@ -19,7 +19,7 @@
                         password="${password}"/>
 
         <!-- 配置DOMAIN -->
-        <javaModelGenerator targetPackage="com.dranawhite.forum.user.domain"
+        <javaModelGenerator targetPackage="com.dranawhite.forum.domain"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -32,7 +32,7 @@
         </sqlMapGenerator>
 
         <!-- 配置DAO -->
-        <javaClientGenerator targetPackage="com.dranawhite.forum.user.dao"
+        <javaClientGenerator targetPackage="com.dranawhite.forum.dao"
                              targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
@@ -45,9 +45,9 @@
                enableDeleteByExample="false"
                enableSelectByExample="false">
             <!-- PO基类 -->
-            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <property name="rootClass" value="com.dranawhite.forum.domain.BaseDomain" />
             <!-- DAO基类 -->
-            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+            <property name="rootInterface" value="com.dranawhite.forum.dao.BaseDao" />
         </table>
         <table schema="${schema}"
                tableName="T_BOARD"
@@ -56,8 +56,8 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false">
-            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
-            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+            <property name="rootClass" value="com.dranawhite.forum.domain.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.dao.BaseDao" />
         </table>
         <table schema="${schema}"
                tableName="T_BOARD_MANAGER"
@@ -66,8 +66,8 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false">
-            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
-            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+            <property name="rootClass" value="com.dranawhite.forum.domain.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.dao.BaseDao" />
         </table>
         <table schema="${schema}"
                tableName="T_POST"
@@ -76,8 +76,8 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false">
-            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
-            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+            <property name="rootClass" value="com.dranawhite.forum.domain.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.dao.BaseDao" />
         </table>
         <table schema="${schema}"
                tableName="T_USER"
@@ -86,8 +86,8 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false">
-            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
-            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+            <property name="rootClass" value="com.dranawhite.forum.domain.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.dao.BaseDao" />
         </table>
         <table schema="${schema}"
                tableName="T_LOGIN_LOG"
@@ -96,8 +96,8 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false">
-            <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
-            <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
+            <property name="rootClass" value="com.dranawhite.forum.domain.BaseDomain" />
+            <property name="rootInterface" value="com.dranawhite.forum.dao.BaseDao" />
         </table>
     </context>
 </generatorConfiguration>

@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns = "http://www.springframework.org/schema/beans"
        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
        xsi:schemaLocation = "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
-
+    <!-- 创建SqlSessionFactory；SqlSessionFactory是用来创建SqlSession的 -->
+    <bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
+        <property name = "dataSource" ref="dataSource" />
+        <property name = "configLocation" value="classpath:mybatis/mybatis-config.xml" />
+        <property name = "mapperLocations" value="classpath:mapper/*Mapper.xml" />
     </bean>
 
+    <!-- 配置使用动态代理自动生成Dao的内容 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name = "basePackage" value="com.dranawhite.forum.dao" />
+        <property name = "sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <!-- 只有标注@Repository注解的Dao才会被扫描 -->
+        <property name = "annotationClass" value="org.springframework.stereotype.Repository" />
+    </bean>
+
+    <!-- 使用JNDI的方式配置数据源 -->
+    <!-- JNDI通过java:comp/env获取JNDI上下文；然后通过jdbc/orcl获取DataSource资源 -->
+    <bean id = "dataSource" class = "org.springframework.jndi.JndiObjectFactoryBean"
+          p:jndiName="java:comp/env/jdbc/orcl"/>
+
+    <!-- 创建事务 -->
+    <!-- DataSourceTransactionManager用于创建JDBC或MyBatis等基于DataSource的持久化 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
 </beans>

@@ -1,6 +1,5 @@
-package com.dranawhite.forum.user.dao;
+package com.dranawhite.forum.dao;
 
-import com.dranawhite.forum.base.BaseDao;
 import org.springframework.stereotype.Repository;
 
 /**
