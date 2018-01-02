@@ -1,7 +1,7 @@
 /**
  * 命令模式
  * <pre>
- *      类图参照：resources/diagram/command.png
+ *      类图参照：/docs/command.png
  * </pre>
  * <pre>
  * 优点：
