@@ -16,7 +16,7 @@ public class DbHelper {
     public static SqlSessionFactory getSessionFactory() {
         Reader reader;
         try {
-            reader = Resources.getResourceAsReader("mybatis-config.xml");
+            reader = Resources.getResourceAsReader("mybatis/mybatis-config.xml");
             //若忽略了environment参数，将加载默认的环境
             return new SqlSessionFactoryBuilder().build(reader);
         }

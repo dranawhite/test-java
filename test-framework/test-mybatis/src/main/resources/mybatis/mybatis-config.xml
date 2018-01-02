@@ -26,7 +26,7 @@
 
     <!-- 别名 -->
     <typeAliases>
-        <typeAlias alias="Person" type="com.dranawhite.mybatis.model.PersonPO"/>
+        <package name="com.dranawhite.mybatis.model" />
     </typeAliases>
 
     <!-- 默认是Dev环境 -->
@@ -37,16 +37,16 @@
             <transactionManager type="JDBC"/>
             <!-- 使用连接池，默认10个链接 -->
             <dataSource type="POOLED">
-                <property name="driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-                <property name="url" value="jdbc:derby:derby"/>
-                <property name="username" value="scott"/>
-                <property name="password" value="tiger"/>
+                <property name="driver" value="${driverClassName}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
     </environments>
 
     <!-- Mapper文件映射 -->
     <mappers>
-        <mapper resource="mapper/PersonPOMapper.xml"/>
+        <mapper resource="mapper/PersonMapper.xml"/>
     </mappers>
 </configuration>

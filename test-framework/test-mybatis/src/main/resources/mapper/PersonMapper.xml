@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dranawhite.mybatis.dao.PersonPOMapper">
+<mapper namespace="com.dranawhite.mybatis.dao.PersonMapper">
     <resultMap id="BaseResultMap" type="Person">
         <result column="ID" jdbcType="INTEGER" property="id"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
@@ -21,4 +21,13 @@
                 #{address, jdbcType = VARCHAR}
             )
     </insert>
+    <select id="queryPersons" resultType="Person">
+        SELECT
+            ID,
+            NAME,
+            AGE,
+            PHONE,
+            ADDRESS
+        FROM T_PERSON
+    </select>
 </mapper>

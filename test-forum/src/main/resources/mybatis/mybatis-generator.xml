@@ -44,7 +44,9 @@
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false">
+            <!-- PO基类 -->
             <property name="rootClass" value="com.dranawhite.forum.base.BaseDomain" />
+            <!-- DAO基类 -->
             <property name="rootInterface" value="com.dranawhite.forum.base.BaseDao" />
         </table>
         <table schema="${schema}"
