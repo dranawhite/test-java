@@ -31,7 +31,7 @@
 
     <!-- 自定义映射处理器 -->
     <typeHandlers>
-        <typeHandler handler="com.dranawhite.mybatis.handler.AddressJsonHandler" />
+        <package name="com.dranawhite.mybatis.handler" />
     </typeHandlers>
 
     <!-- 默认是Dev环境 -->

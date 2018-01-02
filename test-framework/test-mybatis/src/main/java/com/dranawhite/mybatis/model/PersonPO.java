@@ -20,6 +20,22 @@ public class PersonPO {
 
     private Address address;
 
+    private Integer addressType;
+
+    /**
+     * @return the addressType
+     */
+    public Integer getAddressType() {
+        return addressType;
+    }
+
+    /**
+     * @param addressType the addressType to set
+     */
+    public void setAddressType(Integer addressType) {
+        this.addressType = addressType;
+    }
+
     public Integer getId() {
         return id;
     }
