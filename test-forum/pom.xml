@@ -102,6 +102,23 @@
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
         </dependency>
+        <!-- Unitils集成测试 -->
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-database</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-dbunit</artifactId>
+        </dependency>
 
         <!-- Logging -->
         <dependency>
@@ -172,6 +189,7 @@
                 <url>jdbc:mysql://dranawhite.mysql.rds.aliyuncs.com:3306/orcl?characterEncoding=utf-8&amp;serverTimezone=CST&amp;userSSL=true</url>
                 <username>root</username>
                 <password>lyq10250618LYQ</password>
+                <schema>orcl</schema>
             </properties>
         </profile>
     </profiles>

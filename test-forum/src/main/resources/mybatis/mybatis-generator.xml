@@ -5,8 +5,6 @@
 
 <generatorConfiguration>
     <context id="orcl" targetRuntime="MyBatis3Simple">
-        <property name="schema" value="orcl" />
-
         <commentGenerator>
             <!-- 取消所有注释 -->
             <property name="suppressAllComments" value="true"/>

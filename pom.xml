@@ -183,6 +183,28 @@
                 <artifactId>unitils-spring</artifactId>
                 <version>${unitils.version}</version>
                 <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-beans</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-test</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-tx</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.unitils</groupId>
@@ -399,7 +421,9 @@
                         <uriEncoding>UTF-8</uriEncoding>
                         <!-- setting.xml中配置的Server ID -->
                         <server>TomcatServer</server>
-                        <contextFile>${project.basedir}/src/main/resources/tomcat/tomcat-context.xml</contextFile>
+                        <contextFile>
+                            ${project.basedir}/src/main/resources/tomcat/tomcat-context.xml
+                        </contextFile>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -418,7 +442,9 @@
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
                     <version>1.3.5</version>
                     <configuration>
-                        <configurationFile>${project.basedir}/src/main/resources/mybatis/mybatis-generator.xml</configurationFile>
+                        <configurationFile>
+                            ${project.basedir}/src/main/resources/mybatis/mybatis-generator.xml
+                        </configurationFile>
                     </configuration>
                 </plugin>
             </plugins>
