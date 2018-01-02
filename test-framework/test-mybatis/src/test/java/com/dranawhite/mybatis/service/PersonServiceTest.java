@@ -2,6 +2,7 @@ package com.dranawhite.mybatis.service;
 
 import com.dranawhite.mybatis.common.DbHelper;
 import com.dranawhite.mybatis.dao.PersonMapper;
+import com.dranawhite.mybatis.model.Address;
 import com.dranawhite.mybatis.model.PersonPO;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -41,7 +42,10 @@ public class PersonServiceTest {
         person.setAge(26);
         person.setName("hali");
         person.setPhone("15895886124");
-        person.setAddress("南京市雨花区大数据产业基地180号");
+        Address address = new Address();
+        address.setAddress("南京市雨花区大数据产业基地");
+        address.setNo(180);
+        person.setAddress(address);
         personMapper.insertPerson(person);
     }
 
@@ -51,7 +55,7 @@ public class PersonServiceTest {
         pn.setId(1001);
         pn.setName("ha");
         List<PersonPO> poList = personMapper.queryPersons(pn);
-        Assert.assertNotNull(poList);
+        System.out.println(poList);
     }
 
     @After

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <!-- 全局映射器启用缓存 -->
+        <!-- 全局映射器启用二级缓存，默认使用最小使用原则清除缓存，保留1024个引用 -->
         <setting name="cacheEnabled" value="true"/>
         <!-- 查询时，关闭关联对象即时加载以提高性能 -->
         <setting name="lazyLoadingEnabled" value="true"/>
@@ -28,6 +28,11 @@
     <typeAliases>
         <package name="com.dranawhite.mybatis.model" />
     </typeAliases>
+
+    <!-- 自定义映射处理器 -->
+    <typeHandlers>
+        <typeHandler handler="com.dranawhite.mybatis.handler.AddressJsonHandler" />
+    </typeHandlers>
 
     <!-- 默认是Dev环境 -->
     <environments default="dev">

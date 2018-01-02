@@ -7,7 +7,8 @@
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="AGE" jdbcType="INTEGER" property="age"/>
         <result column="PHONE" jdbcType="VARCHAR" property="phone"/>
-        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+        <result column="ADDRESS" jdbcType="VARCHAR" property="address"
+                typeHandler="com.dranawhite.mybatis.handler.AddressJsonHandler"/>
     </resultMap>
 
     <insert id="insertPerson" parameterType="Person">
@@ -26,7 +27,7 @@
                 #{phone, jdbcType = VARCHAR},
             </if>
             <if test="address != null">
-                #{address, jdbcType = VARCHAR},
+                #{address, jdbcType = VARCHAR, typeHandler = com.dranawhite.mybatis.handler.AddressJsonHandler},
             </if>
         </trim>
     </insert>

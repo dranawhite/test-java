@@ -18,7 +18,7 @@ public class PersonPO {
 
     private String phone;
 
-    private String address;
+    private Address address;
 
     public Integer getId() {
         return id;
@@ -52,12 +52,18 @@ public class PersonPO {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public String getAddress() {
+    /**
+     * @return the address
+     */
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
