@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dranawhite.mybatis.dao.PersonMapper">
-    <resultMap id="BaseResultMap" type="Person">
-        <result column="ID" jdbcType="INTEGER" property="id"/>
-        <result column="NAME" jdbcType="VARCHAR" property="name"/>
-        <result column="AGE" jdbcType="INTEGER" property="age"/>
-        <result column="PHONE" jdbcType="VARCHAR" property="phone"/>
-        <result column="ADDRESS_TYPE" jdbcType="INTEGER" property="addressType"/>
-        <discriminator javaType="Integer" column="ADDRESS_TYPE">
-            <case value="1" resultMap="AddressMap"/>
-            <case value="2" resultMap="FullAddressMap"/>
+<mapper namespace = "com.dranawhite.mybatis.dao.PersonMapper">
+    <resultMap id = "BaseResultMap" type = "Person">
+        <result column = "ID" jdbcType = "INTEGER" property = "id" />
+        <result column = "NAME" jdbcType = "VARCHAR" property = "name" />
+        <result column = "AGE" jdbcType = "INTEGER" property = "age" />
+        <result column = "PHONE" jdbcType = "VARCHAR" property = "phone" />
+        <result column = "ADDRESS_TYPE" jdbcType = "INTEGER" property = "addressType" />
+        <discriminator javaType = "Integer" column = "ADDRESS_TYPE">
+            <case value = "1" resultMap = "AddressMap" />
+            <case value = "2" resultMap = "FullAddressMap" />
         </discriminator>
     </resultMap>
-    <resultMap id="AddressMap" type="java.lang.String">
-        <result column="ADDRESS" jdbcType="VARCHAR" property="address"
-                typeHandler="com.dranawhite.mybatis.handler.AddressJsonHandler"/>
+    <resultMap id = "AddressMap" type = "Person" extends="BaseResultMap">
+        <result column = "ADDRESS" jdbcType = "VARCHAR" property = "address"
+                typeHandler = "com.dranawhite.mybatis.handler.AddressJsonHandler" />
     </resultMap>
-    <resultMap id="FullAddressMap" type="java.lang.String">
-        <result column="ADDRESS" jdbcType="VARCHAR" property="address"
-                typeHandler="com.dranawhite.mybatis.handler.FullAddressJsonHandler"/>
+    <resultMap id = "FullAddressMap" type = "Person" extends = "BaseResultMap">
+        <result column = "ADDRESS" jdbcType = "VARCHAR" property = "address"
+                typeHandler = "com.dranawhite.mybatis.handler.FullAddressJsonHandler" />
     </resultMap>
 
-    <insert id="insertPerson" parameterType="Person">
+    <insert id = "insertPerson" parameterType = "Person">
         INSERT INTO T_PERSON VALUES
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
+        <trim prefix = "(" suffix = ")" suffixOverrides = ",">
+            <if test = "id != null">
                 #{id, jdbcType = INTEGER},
             </if>
-            <if test="name != null">
+            <if test = "name != null">
                 #{name, jdbcType = VARCHAR},
             </if>
-            <if test="age != null">
+            <if test = "age != null">
                 #{age, jdbcType = INTEGER},
             </if>
-            <if test="phone != null">
+            <if test = "phone != null">
                 #{phone, jdbcType = VARCHAR},
             </if>
-            <if test="address != null and addressType == 1">
+            <if test = "address != null and addressType == 1">
                 #{address, jdbcType = VARCHAR, typeHandler = com.dranawhite.mybatis.handler.AddressJsonHandler},
             </if>
-            <if test="address != null and addressType == 2">
+            <if test = "address != null and addressType == 2">
                 #{address, jdbcType = VARCHAR, typeHandler = com.dranawhite.mybatis.handler.FullAddressJsonHandler},
             </if>
-            <if test="addressType != null">
+            <if test = "addressType != null">
                 #{addressType, jdbcType = INTEGER}
             </if>
         </trim>
     </insert>
     <!-- trim标签，用于去除头部或者尾部的元素 -->
     <!-- bind标签，可以做一些绑定操作，其中name是传入的变量名 -->
-    <select id="queryPersons" resultType="Person" parameterType="Person">
-        <bind name="namePattern" value="name + '%'"/>
+    <select id = "queryPersons" resultMap = "BaseResultMap" parameterType = "Person">
+        <bind name = "namePattern" value = "name + '%'" />
         SELECT
         ID,
         NAME,
@@ -60,11 +60,11 @@
         ADDRESS,
         ADDRESS_TYPE
         FROM T_PERSON
-        <trim prefix="WHERE" prefixOverrides="AND | OR">
-            <if test="id != null">
+        <trim prefix = "WHERE" prefixOverrides = "AND | OR">
+            <if test = "id != null">
                 AND ID = #{id, jdbcType = INTEGER}
             </if>
-            <if test="name != null">
+            <if test = "name != null">
                 AND NAME LIKE #{namePattern}
             </if>
         </trim>

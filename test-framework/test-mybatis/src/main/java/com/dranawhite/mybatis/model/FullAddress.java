@@ -1,9 +1,12 @@
 package com.dranawhite.mybatis.model;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @author dranawhite 2018/1/2
  * @version 1.0
  */
+@Alias("FullAddress")
 public class FullAddress extends Address {
 
     private String province;
