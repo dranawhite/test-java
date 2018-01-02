@@ -47,7 +47,10 @@ public class PersonServiceTest {
 
     @Test
     public void testPersonQuery() {
-        List<PersonPO> poList = personMapper.queryPersons();
+        PersonPO pn = new PersonPO();
+        pn.setId(1001);
+        pn.setName("ha");
+        List<PersonPO> poList = personMapper.queryPersons(pn);
         Assert.assertNotNull(poList);
     }
 

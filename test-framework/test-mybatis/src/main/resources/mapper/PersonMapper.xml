@@ -11,17 +11,29 @@
     </resultMap>
 
     <insert id="insertPerson" parameterType="Person">
-        INSERT INTO T_PERSON (ID, NAME, AGE, PHONE, ADDRESS)
-        VALUES
-            (
+        INSERT INTO T_PERSON VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 #{id, jdbcType = INTEGER},
+            </if>
+            <if test="name != null">
                 #{name, jdbcType = VARCHAR},
+            </if>
+            <if test="age != null">
                 #{age, jdbcType = INTEGER},
+            </if>
+            <if test="phone != null">
                 #{phone, jdbcType = VARCHAR},
-                #{address, jdbcType = VARCHAR}
-            )
+            </if>
+            <if test="address != null">
+                #{address, jdbcType = VARCHAR},
+            </if>
+        </trim>
     </insert>
-    <select id="queryPersons" resultType="Person">
+    <!-- trim标签，用于去除头部或者尾部的元素 -->
+    <!-- bing标签，可以做一些绑定操作，其中name是传入的变量名 -->
+    <select id="queryPersons" resultType="Person" parameterType="Person">
+        <bind name="namePattern" value="name + '%'" />
         SELECT
             ID,
             NAME,
@@ -29,5 +41,13 @@
             PHONE,
             ADDRESS
         FROM T_PERSON
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="id != null">
+                AND ID = #{id, jdbcType = INTEGER}
+            </if>
+            <if test="name != null">
+                AND NAME LIKE #{namePattern}
+            </if>
+        </trim>
     </select>
 </mapper>
