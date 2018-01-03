@@ -163,7 +163,7 @@
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito</artifactId>
-                <version>%{powermock.version}</version>
+                <version>${powermock.version}</version>
                 <scope>test</scope>
             </dependency>
             <!-- 集成测试 -->
@@ -210,6 +210,12 @@
             <dependency>
                 <groupId>org.unitils</groupId>
                 <artifactId>unitils-mock</artifactId>
+                <version>${unitils.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.unitils</groupId>
+                <artifactId>unitils-io</artifactId>
                 <version>${unitils.version}</version>
                 <scope>test</scope>
             </dependency>
@@ -388,6 +394,26 @@
                 </includes>
             </resource>
         </resources>
+        <testResources>
+            <!-- 指定该目录下的资源文件中的占位符会被替换 -->
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </testResource>
+            <!-- 不解析Excel文件 -->
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.xlsx</include>
+                    <include>**/*.xls</include>
+                </includes>
+            </testResource>
+        </testResources>
 
         <pluginManagement>
             <plugins>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dranawhite.forum.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="UserPO">
+    <resultMap id="BaseResultMap" type="User">
         <result column="USER_ID" jdbcType="INTEGER" property="userId"/>
         <result column="USER_NAME" jdbcType="VARCHAR" property="userName"/>
         <result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
@@ -11,4 +11,14 @@
         <result column="LAST_IP" jdbcType="CHAR" property="lastIp"/>
     </resultMap>
 
+    <sql id = "BaseColumn">
+        USER_ID, USER_NAME, PASSWORD, CREDITS, LAST_VISIT, LAST_IP
+    </sql>
+
+    <select id = "queryUserById" parameterType = "java.lang.Integer" resultType = "User">
+        SELECT
+            <include refid = "BaseColumn" />
+        FROM T_USER
+        WHERE USER_ID = #{userId, jdbcType = INTEGER}
+    </select>
 </mapper>

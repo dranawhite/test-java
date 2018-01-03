@@ -119,6 +119,14 @@
             <groupId>org.unitils</groupId>
             <artifactId>unitils-dbunit</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+        </dependency>
 
         <!-- Logging -->
         <dependency>

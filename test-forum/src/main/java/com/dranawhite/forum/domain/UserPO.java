@@ -2,6 +2,7 @@ package com.dranawhite.forum.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
 
@@ -9,6 +10,7 @@ import java.util.Date;
  * @author dranawhite
  * @version 1.0.0
  */
+@Alias("User")
 public class UserPO extends BaseDomain {
 
     private static final long serialVersionUID = -6386867392479728302L;

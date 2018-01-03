@@ -8,7 +8,8 @@ import org.unitils.spring.annotation.SpringApplicationContext;
  *
  * @author liangyq 2018/1/2
  */
-@SpringApplicationContext({"classpath:spring/spring-context.xml"})
-public class BaseDaoTest extends UnitilsJUnit4{
+@SpringApplicationContext({"classpath:spring/spring-context.xml",
+        "classpath:spring/spring-datasource.xml"})
+public class BaseDaoTest extends UnitilsJUnit4 {
 
 }
