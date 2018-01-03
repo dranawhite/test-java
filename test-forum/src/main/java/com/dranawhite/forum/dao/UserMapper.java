@@ -11,6 +11,13 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper extends BaseDao {
 
     /**
+     * 插入User信息
+     *
+     * @param user 用户信息
+     */
+    void insertUser(UserPO user);
+
+    /**
      * 根据UserId查询用户信息
      *
      * @param userId 用户ID
