@@ -22,12 +22,12 @@
         <!-- JSP -->
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
         </dependency>
         <!-- jstl -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
         </dependency>
 
         <!-- Spring Framework -->
