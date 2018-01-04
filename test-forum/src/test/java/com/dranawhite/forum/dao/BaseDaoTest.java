@@ -10,6 +10,6 @@ import org.unitils.spring.annotation.SpringApplicationContext;
  */
 @SpringApplicationContext({"classpath:spring/spring-context.xml",
         "classpath:spring/spring-datasource.xml"})
-public class BaseDaoTest extends UnitilsJUnit4 {
+public abstract class BaseDaoTest extends UnitilsJUnit4 {
 
 }

@@ -27,9 +27,9 @@ public class UserDaoTest extends BaseDaoTest {
     }
 
     @Test
-    @ExpectedDataSet("data/User.xlsx")
+    @ExpectedDataSet("data/ExceptedUser.xlsx")
     public void testInsertUser() throws Exception {
-        Resource resource = new ClassPathResource("data/User.xlsx");
+        Resource resource = new ClassPathResource("data/ExceptedUser.xlsx");
         List<UserPO> userList =
                 XlsDataSetBeanFactory.createBeans(resource.getFile(), "T_USER", UserPO.class);
         for (UserPO user : userList) {
