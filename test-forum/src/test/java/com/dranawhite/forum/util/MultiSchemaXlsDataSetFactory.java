@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Properties;
 
 /**
+ * Unitils操作Excel数据
+ *
  * @author dranawhite
  */
 public class MultiSchemaXlsDataSetFactory implements DataSetFactory {
