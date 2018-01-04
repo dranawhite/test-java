@@ -2,8 +2,7 @@ package com.dranawhite.forum.util;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtilsBean;
-import org.apache.commons.beanutils.converters.DateConverter;
-import org.apache.commons.beanutils.converters.SqlDateConverter;
+import org.apache.commons.beanutils.converters.DateTimeConverter;
 import org.dbunit.dataset.Column;
 import org.dbunit.dataset.DataSetException;
 import org.dbunit.dataset.IDataSet;
@@ -16,10 +15,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 /**
  * 从EXCEL数据集文件创建Bean
@@ -103,13 +102,29 @@ public class XlsDataSetBeanFactory {
     }
 
     private static ConvertUtilsBean createConverUtils() {
-        DateConverter dateConverter = new DateConverter();
+        DateTimeConverter dateConverter = new NullableDateConverter();
         dateConverter.setPattern("yyyy/MM/dd");
         ConvertUtilsBean convertUtilsBean = new ConvertUtilsBean();
         convertUtilsBean.register(dateConverter, java.util.Date.class);
         convertUtilsBean.register(dateConverter, Timestamp.class);
         convertUtilsBean.register(dateConverter, java.sql.Date.class);
         return convertUtilsBean;
+    }
+
+    static class NullableDateConverter extends DateTimeConverter {
+
+        @Override
+        protected Class<?> getDefaultType() {
+            return Date.class;
+        }
+
+        @Override
+        public <T> T convert(final Class<T> type, Object value) {
+            if (value == null) {
+                return null;
+            }
+            return super.convert(type, value);
+        }
     }
 
 }
