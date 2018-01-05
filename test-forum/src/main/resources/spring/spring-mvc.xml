@@ -12,7 +12,8 @@
     <mvc:annotation-driven/>
 
     <!-- 默认Spring MVC检测所有的HandlerAdapter实现类 -->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <bean id="handlerAdapter"
+            class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
