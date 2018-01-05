@@ -31,7 +31,7 @@
         </trim>
     </insert>
 
-    <select id = "queryUserById" parameterType = "java.lang.Integer" resultType = "User">
+    <select id = "queryUserById" parameterType = "java.lang.Integer" resultMap="BaseResultMap">
         SELECT
             <include refid = "BaseColumn" />
         FROM T_USER
