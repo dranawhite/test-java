@@ -14,12 +14,10 @@
     <description>常用框架</description>
 
     <modules>
-        <module>test-frame</module>
         <module>test-spring</module>
         <module>test-log</module>
         <module>test-mybatis</module>
         <module>test-springmvc</module>
-        <module>test-catalina</module>
         <module>test-hibernate</module>
     </modules>
 
