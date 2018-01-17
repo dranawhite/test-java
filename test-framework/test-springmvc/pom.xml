@@ -85,10 +85,10 @@
 
     <build>
         <plugins>
-            <!-- Tomcat插件 -->
+            <!-- Jetty插件-->
             <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

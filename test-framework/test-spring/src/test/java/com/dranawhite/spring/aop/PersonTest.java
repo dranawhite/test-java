@@ -121,6 +121,7 @@ public class PersonTest {
                 ("aop/applicationContext-aspectanno.xml");
         Person person = (Person) ctx.getBean("person");
         person.sayTag();
+        person.say();
     }
 
     @Test

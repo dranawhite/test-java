@@ -1,5 +1,8 @@
 package com.dranawhite.springmvc.controller;
 
+import com.dranawhite.springmvc.service.SimpleService;
+import org.aspectj.lang.annotation.Around;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +29,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/simple")
 public class SimpleController {
 
+    @Autowired
+    private SimpleService simpleService;
+
     @RequestMapping("/print")
     public ModelAndView printHello() {
         //收集参数
@@ -38,6 +44,25 @@ public class SimpleController {
         //设置逻辑视图名，视图解析器会根据该名字解析到具体的视图页面
         mav.setViewName("hello");
         return mav;
+    }
+
+    /**
+     * ExceptionHandler注解打印异常
+     *
+     * <pre>
+     *  打印结果：
+     *      ====Exception Handler!====
+     *      null
+     * </pre>
+     */
+    @RequestMapping("/exception")
+    public void printException() {
+        throw new NullPointerException();
+    }
+
+    @RequestMapping("/service")
+    public void doService() {
+        simpleService.doService();
     }
 
 }
