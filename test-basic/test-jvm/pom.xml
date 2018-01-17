@@ -27,6 +27,11 @@
             <groupId>com.dranawhite</groupId>
             <artifactId>test-common</artifactId>
         </dependency>
+        <!-- 使用Spring操纵资源文件 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
         <!-- SPI对数据库依赖 -->
         <dependency>
             <groupId>ojdbc</groupId>
