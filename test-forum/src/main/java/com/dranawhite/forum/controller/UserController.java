@@ -29,7 +29,6 @@ public class UserController {
     @RequestMapping("/getInfo")
     @ResponseBody
     public UserPO getUserInfo(@RequestBody UserPO user) {
-        user.setUserId(1002);
         return userService.getUserInfo(user.getUserId());
     }
 

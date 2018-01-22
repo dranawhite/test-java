@@ -1,4 +1,4 @@
-package com.dranawhite.jvm.number;
+package com.dranawhite.jvm.math;
 
 /**
  * @author dranawhite 2017/10/18
