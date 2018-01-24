@@ -1,0 +1,29 @@
+<project xmlns = "http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "
+            http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.dranawhite</groupId>
+        <artifactId>dranawhite</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>test-java</artifactId>
+    <packaging>pom</packaging>
+
+    <name>test-java</name>
+    <url>https://www.dranawhite.com/test-java</url>
+
+    <modules>
+        <module>test-basic</module>
+        <module>test-common</module>
+        <module>test-core</module>
+        <module>test-forum</module>
+        <module>test-framework</module>
+        <module>test-pattern</module>
+        <module>test-web</module>
+    </modules>
+
+</project>
