@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>Title</title>
+
+    <link rel = "stylesheet"
+          href = "http://cdn.dranawhite.com:8080/dranawhite-ui/resources/plugin/layui/css/layui.css" />
+
+    <script type="application/javascript"
+            src="http://cdn.dranawhite.com:8080/dranawhite-ui/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="application/javascript"
+            src="http://cdn.dranawhite.com:8080/dranawhite-ui/resources/plugin/layui/layui.js"></script>
+</head>
+<body>
+<input type="button" id="test" value="run">
+<script>
+    $(function () {
+        $("#test").click(function () {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+                layer.msg('Hello World!');
+            });
+        });
+    });
+</script>
+</body>
+</html>
