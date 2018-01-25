@@ -23,4 +23,8 @@ public class LogBackLogger {
         logger.warn("日志-logback");
     }
 
+    public void error() {
+        logger.error("日志-logback");
+    }
+
 }

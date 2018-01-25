@@ -24,4 +24,9 @@ public class LogBackTest {
     public void testWarn() {
         logger.warn();
     }
+
+    @Test
+    public void testError() {
+        logger.error();
+    }
 }
