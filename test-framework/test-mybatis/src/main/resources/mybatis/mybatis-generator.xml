@@ -3,51 +3,74 @@
         "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-    <context id="mybatis_db">
+    <context id = "mybatis_db">
+        <property name = "javaFileEncoding" value = "UTF-8" />
+
+        <!-- 为生成的Java模型创建一个toString方法 -->
+        <plugin type = "org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+
+        <!-- 为生成的Java模型类添加序列化接口，并生成serialVersionUID字段 -->
+        <plugin type = "org.mybatis.generator.plugins.SerializablePlugin">
+            <property name = "suppressJavaInterface" value = "false" />
+        </plugin>
+
         <!-- 取消所有注释 -->
-        <commentGenerator type="com.dranawhite.common.mybatis.CommentGenerator">
-            <property name="suppressAllComments" value="false"/>
-            <property name="suppressDate" value="true"/>
+        <commentGenerator type = "com.dranawhite.common.mybatis.DbCommentGenerator">
+            <property name = "suppressAllComments" value = "false" />
+            <property name = "suppressDate" value = "false" />
+            <property name = "addRemarkComments" value = "true" />
+            <property name = "author" value = "liangyq" />
+            <property name = "version" value = "1.0" />
+            <property name = "suppressModelAlias" value = "true" />
         </commentGenerator>
 
         <!-- jdbc连接 -->
-        <jdbcConnection driverClass="${driverClassName}"
-                        connectionURL="${url}"
-                        userId="${username}"
-                        password="${password}"/>
-
+        <jdbcConnection driverClass = "${driverClassName}"
+                        connectionURL = "${url}"
+                        userId = "${username}"
+                        password = "${password}">
+            <!-- 针对Oracle数据库，获取表以及字段的备注信息; 该处信息会被添加到url的后面 -->
+            <!--<property name="remarksReporting" value="true" />-->
+            <!-- 针对MySQl数据库，获取表以及字段的备注信息; 该处信息会被添加到url的后面 -->
+            <property name = "useInformationSchema" value = "true" />
+        </jdbcConnection>
         <!-- 类型转换 -->
         <javaTypeResolver>
-            <property name="forceBigDecimals" value="false"/>
+            <property name = "forceBigDecimals" value = "false" />
         </javaTypeResolver>
 
         <!-- 生成实体类地址 -->
-        <javaModelGenerator targetPackage="com.dranawhite.mybatis.model"
-                            targetProject="src/main/java">
-            <property name="enableSubPackages" value="false"/>
-            <property name="trimStrings" value="true"/>
+        <javaModelGenerator targetPackage = "com.dranawhite.mybatis.model"
+                            targetProject = "src/main/java">
+            <property name = "enableSubPackages" value = "false" />
+            <property name = "trimStrings" value = "true" />
         </javaModelGenerator>
 
         <!-- 生成mapxml文件 -->
-        <sqlMapGenerator targetPackage="mapper"
-                         targetProject="src/main/resources">
-            <property name="enableSubPackages" value="false"/>
+        <sqlMapGenerator targetPackage = "mapper"
+                         targetProject = "src/main/resources">
+            <property name = "enableSubPackages" value = "false" />
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
-        <javaClientGenerator targetPackage="com.dranawhite.mybatis.dao"
-                             targetProject="src/main/java" type="XMLMAPPER">
-            <property name="enableSubPackages" value="false"/>
+        <javaClientGenerator targetPackage = "com.dranawhite.mybatis.dao"
+                             targetProject = "src/main/java" type = "XMLMAPPER">
+            <property name = "enableSubPackages" value = "false" />
         </javaClientGenerator>
 
         <!-- 配置表信息 -->
-        <table schema="${schema}" tableName="T_USER"
-               domainObjectName="UserPO"
-               enableInsert="false"
-               enableDeleteByExample="false"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableSelectByExample="false">
+        <table schema = "${schema}"
+               tableName = "T_USER"
+               domainObjectName = "UserPO"
+               mapperName = "UserMapper"
+               enableInsert = "false"
+               enableSelectByPrimaryKey = "true"
+               enableDeleteByPrimaryKey = "false"
+               enableUpdateByPrimaryKey = "false"
+               enableDeleteByExample = "false"
+               enableCountByExample = "false"
+               enableUpdateByExample = "false"
+               enableSelectByExample = "false">
         </table>
     </context>
 </generatorConfiguration>
