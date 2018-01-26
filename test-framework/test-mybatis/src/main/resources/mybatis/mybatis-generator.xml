@@ -5,8 +5,8 @@
 <generatorConfiguration>
     <context id="mybatis_db">
         <!-- 取消所有注释 -->
-        <commentGenerator>
-            <property name="suppressAllComments" value="true"/>
+        <commentGenerator type="com.dranawhite.common.mybatis.CommentGenerator">
+            <property name="suppressAllComments" value="false"/>
             <property name="suppressDate" value="true"/>
         </commentGenerator>
 
@@ -41,8 +41,8 @@
         </javaClientGenerator>
 
         <!-- 配置表信息 -->
-        <table schema="SCOTT" tableName="T_PERSON"
-               domainObjectName="PersonPO"
+        <table schema="${schema}" tableName="T_USER"
+               domainObjectName="UserPO"
                enableInsert="false"
                enableDeleteByExample="false"
                enableCountByExample="false"
