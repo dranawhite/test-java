@@ -170,13 +170,13 @@ public class DbCommentGenerator implements CommentGenerator {
 
     @Override
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable) {
-        System.out.println("addclassComment 1");
+        // Do Nothing
     }
 
     @Override
     public void addClassComment(InnerClass innerClass, IntrospectedTable introspectedTable,
             boolean markAsDoNotDelete) {
-        System.out.println("addClassComment 2");
+        // Do Nothing
     }
 
     @Override
