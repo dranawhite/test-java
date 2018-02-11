@@ -13,6 +13,9 @@
  *      Retention——定义了该Annotation被保留的时间长短
  *      Documented——将此注解包含在JavaDoc中
  *      Inherited——允许子类继承父类中的注解
+ * JDK1.8新加入两个注解
+ *      Repeatable——同一个注解可以在一个位置重复使用
+ *      Native——被标注的变量可以被本地方法引入
  *
  * 注解定义规则
  *      1）只能用public修饰符；
@@ -23,7 +26,7 @@
  *      5) 注解元素必须有确定的值，要么在定义注解的默认值中在指定，要么在使用注解时指定，非基本类型的注解元素的值不可为null;
  * </pre>
  *
- * @author dranawhite.web.jvm 2017/7/4
+ * @author dranawhite 2017/7/4
  * @version 1.0
  *
  * @see java.lang.Override
