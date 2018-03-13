@@ -1,7 +1,6 @@
 package com.dranawhite.jvm.trycatch;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -14,22 +13,107 @@ import java.io.IOException;
  * @version 1.0
  */
 public class TryCatch {
-    public static void main(String[] args) {
-        //1.创建当前字符缓冲输入流对象
-        //JDK1.7以后直接释放资源
-        //参数是一个字节输入流的对象
-        try (BufferedInputStream bis =
-                new BufferedInputStream(
-                        new FileInputStream("src/com/qianfeng/Day/Demo.java"))) {
-            //2.属于那个类型的流数组是填充 不是  覆盖 实际读取长度来获取真正 的数据
-            //添加标记 -->印戳 在此输入流添加当前标记添加一个位置(当前在哪个位置重新开始读取)
-            byte[] b = new byte[1024];
-            int len;
-            while ((len = bis.read(b)) != -1) {
-                System.out.println(new String(b, 0, len));
+
+
+ /**
+  * 编译后字节码如下：
+  *
+  * public void barResource() {
+        BarResource bar = new BarResource();
+        Throwable var2 = null;
+
+        try {
+            throw new NullPointerException("执行时出现空指针！");
+        } catch (Throwable var10) {
+            var2 = var10;
+            throw var10;
+        } finally {
+            if (bar != null) {
+                if (var2 != null) {
+                    try {
+                        bar.close();
+                    } catch (Throwable var9) {
+                        var2.addSuppressed(var9);
+                    }
+                } else {
+                    bar.close();
+                }
             }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+
+        }
+    }*/
+    public void barResource() {
+        try (BarResource bar = new BarResource()) {
+           throw new NullPointerException("执行时出现空指针！");
         }
     }
+
+
+    /**
+     * 实现AutoClosable接口，使用try-with-resources方式使用的资源。如果close方法抛出异常，则会保留原有的异常
+     */
+    public void fooResource() {
+        try (FooResource foo = new FooResource()) {
+            throw new IOException("运行中出现IO异常!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void fooNormalResource() {
+        FooResource foo = null;
+        try {
+            foo = new FooResource();
+            throw new IOException("运行中出现IO异常!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                foo.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Catch捕获多个异常
+     */
+    public void mulityException() {
+        try {
+            new MulityException().throwExp();
+        } catch (IOException | ClassNotFoundException e) {
+            // 执行Exception.printStackTrace();
+            e.printStackTrace();
+        }
+    }
+
+}
+
+/**
+ * 自定义资源类，实现了AutoCloseable接口
+ */
+class FooResource implements AutoCloseable {
+
+    @Override
+    public void close() throws Exception {
+        throw new IOException("Close时出现IO异常!");
+    }
+}
+
+class BarResource implements AutoCloseable {
+
+    @Override
+    public void close() {
+        System.out.println("Invoke close method!");
+        throw new NullPointerException("Close时出现空指针异常!");
+    }
+}
+
+class MulityException {
+
+    public void throwExp() throws IOException, ClassNotFoundException {
+
+    }
+
 }
