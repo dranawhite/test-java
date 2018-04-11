@@ -28,19 +28,70 @@ public class Receiver {
 		factory.setPassword("admin");
 
 		Connection connection = factory.newConnection();
-		Channel channel = connection.createChannel();
-
-		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
-		Consumer consumer = new DefaultConsumer(channel) {
-			@Override
-			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
-					throws IOException {
-				String message = new String(body, "UTF-8");
-				System.out.println(" [x] Received '" + message + "'");
-			}
-		};
-		channel.basicConsume(QUEUE_NAME, true, consumer);
+		Receiver receiver = new Receiver();
+		final Channel channelA = connection.createChannel();
+		RabbitConsumer consumerA = receiver.new RabbitConsumer(channelA, "A");
+		final Channel channelB = connection.createChannel();
+		RabbitConsumer consumerB = receiver.new RabbitConsumer(channelB, "B");
+		consumerA.consume();
+//		consumerB.consume();
+//		Thread retry = new Thread(new Retry(channelA));
+//		retry.start();
 	}
+
+	class RabbitConsumer extends DefaultConsumer {
+
+		private Channel channel;
+
+		private String name;
+
+		public RabbitConsumer(Channel channel, String name) throws IOException {
+			super(channel);
+			this.channel = channel;
+			this.name = name;
+			channel.basicQos(1);
+			channel.queueDeclare(QUEUE_NAME, false, false, false, null);
+		}
+
+		@Override
+		public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+				throws IOException {
+			String message = new String(body, "UTF-8");
+			System.out.println(" [" + name + "] Received '" + message + "'" + "; TAG=" + envelope.getDeliveryTag());
+			if (true) {
+				System.out.println(" [" + name + "] Received 遭遇异常!");
+				throw new IllegalArgumentException();
+			}
+			System.out.println(" [" + name + "] Received 业务操作!");
+			channel.basicAck(envelope.getDeliveryTag(), false);
+		}
+
+		public void consume() throws IOException {
+			channel.basicConsume(QUEUE_NAME, false, this);
+		}
+	}
+}
+
+class Retry implements Runnable {
+
+	private Channel channel;
+
+	public Retry(Channel channel) {
+		this.channel = channel;
+	}
+
+	@Override
+	public void run() {
+		try {
+			Thread.sleep(10000);
+			channel.basicRecover(false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

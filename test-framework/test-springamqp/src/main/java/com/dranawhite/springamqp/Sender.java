@@ -34,7 +34,9 @@ public class Sender {
 		SimpleMessageConverter messageConverter = new SimpleMessageConverter();
 		messageConverter.setCreateMessageIds(true);
 		template.setMessageConverter(messageConverter);
-		template.convertAndSend("test_exchange", "test_topic", "Hello world!");
+		for (int i = 0; i < 100; i++){
+			template.convertAndSend("test_exchange", "test_topic", "Hello world!" + i);
+		}
 	}
 
 }

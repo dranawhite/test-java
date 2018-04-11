@@ -25,8 +25,11 @@ public class Sender {
 		channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 		String message = "Hello World!";
 		channel.queueBind("test_queue", "test_exchange", "test_topic");
-		channel.basicPublish("test_exchange", "test_topic", null, message.getBytes("UTF-8"));
-		System.out.println(" [x] Sent '" + message + "'");
+		for (int i = 0; i < 10; i++) {
+			String body = message + i;
+			channel.basicPublish("test_exchange", "test_topic", null, body.getBytes("UTF-8"));
+			System.out.println(" [x] Sent '" + body + "'");
+		}
 
 		channel.close();
 		connection.close();

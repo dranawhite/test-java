@@ -1,17 +1,14 @@
 package com.dranawhite.springamqp;
 
-import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageListener;
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
-import org.springframework.amqp.support.converter.SimpleMessageConverter;
-import org.springframework.util.backoff.FixedBackOff;
 
-import java.util.Date;
+import java.io.UnsupportedEncodingException;
 
 /**
  * @author liangyq
@@ -28,16 +25,32 @@ public class Receiver {
 
 		// set up the listener and container
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory);
-		Object listener = new Object() {
-			public void handleMessage(String foo) {
-				System.out.println(foo);
+		MessageListener listener = new MessageListener() {
+			@Override
+			public void onMessage(Message message) {
+				try {
+					String result = new String(message.getBody(), "UTF-8");
+					System.out.println("Receive " + message.getBody());
+					System.out.println("Receive Properties " + message.getMessageProperties());
+					if (result.contains("!0")) {
+						System.out.println("Receive 遭遇异常");
+						throw new IllegalArgumentException();
+					}
+					System.out.println("Receive 业务处理");
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				}
 			}
 		};
 		MessageListenerAdapter adapter = new MessageListenerAdapter(listener);
 		container.setMessageListener(adapter);
-		container.setQueueNames("test_queue");
+		Queue queue = new Queue("test_queue", false, false, false);
+		container.setQueues(queue);
+		container.setConcurrentConsumers(3);
+		container.setMaxConcurrentConsumers(3);
+		container.setAcknowledgeMode(AcknowledgeMode.AUTO);
 		container.start();
-		Thread.sleep(1000);
+		Thread.sleep(100000);
 		container.stop();
 	}
 
