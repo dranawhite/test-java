@@ -19,6 +19,7 @@
         <module>test-mybatis</module>
         <module>test-springmvc</module>
         <module>test-hibernate</module>
+        <module>test-springamqp</module>
     </modules>
 
 </project>
