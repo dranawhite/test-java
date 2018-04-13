@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit = "http://www.springframework.org/schema/rabbit"
+       xmlns:context = "http://www.springframework.org/schema/context"
+       xsi:schemaLocation = "
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package = "com.dranawhite.xmlamqp" />
+
+    <!--配置connection-factory，指定连接rabbit server参数 -->
+    <rabbit:connection-factory id = "connectionFactory" host = "192.168.1.210"
+                               port = "5672"
+                               username = "admin"
+                               password = "admin"
+                               publisher-returns = "true" publisher-confirms = "true" />
+
+    <!--通过指定下面的admin信息，当前producer中的exchange和queue会在rabbitmq服务器上自动生成 -->
+    <rabbit:admin connection-factory = "connectionFactory" />
+    <rabbit:template id = "rabbitTemplate" connection-factory = "connectionFactory" />
+
+    <!-- 死信队列 -->
+    <rabbit:queue name = "TEST_DEAD_QUEUE" />
+    <rabbit:direct-exchange name = "TEST_DEAD_EXCHANGE">
+        <rabbit:bindings>
+            <rabbit:binding queue = "TEST_DEAD_QUEUE" key = "TEST_DEAD_ROUTE_KEY" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!-- 重试队列 -->
+    <rabbit:queue name="TEST_RETRY_QUEUE" >
+        <rabbit:queue-arguments>
+            <entry key="x-dead-letter-exchange" value="TEST_REQUEUE_EXCHANGE" />
+            <entry key="x-dead-letter-routing-key" value="TEST_REQUEUE_ROUTE_KEY" />
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+    <rabbit:direct-exchange name = "TEST_RETRY_EXCHANGE">
+        <rabbit:bindings>
+            <rabbit:binding queue="TEST_RETRY_QUEUE" key="TEST_RETRY_ROUTE_KEY"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!-- 重入队交换机 -->
+    <rabbit:direct-exchange name = "TEST_REQUEUE_EXCHANGE">
+        <rabbit:bindings>
+            <rabbit:binding queue="TEST_BUSINESS_QUEUE" key="TEST_REQUEUE_ROUTE_KEY"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!-- 业务队列 -->
+    <rabbit:queue name = "TEST_BUSINESS_QUEUE">
+        <rabbit:queue-arguments>
+            <entry key = "x-dead-letter-exchange" value = "TEST_DEAD_EXCHANGE" />
+            <entry key = "x-dead-letter-routing-key" value = "TEST_DEAD_ROUTE_KEY" />
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+    <rabbit:topic-exchange name = "TEST_BUSINESS_EXCHANGE">
+        <rabbit:bindings>
+            <rabbit:binding queue = "TEST_BUSINESS_QUEUE" pattern = "TEST_BUSINESS_ROUTE_KEY" />
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+    <!-- 定义Listener -->
+    <bean id = "receiver" class = "com.dranawhite.xmlamqp.Receiver" />
+    <bean id = "sender" class = "com.dranawhite.xmlamqp.Sender" />
+
+    <!-- 定义ConsumerListener -->
+    <rabbit:listener-container connection-factory = "connectionFactory" concurrency = "4" max-concurrency = "16"
+                               requeue-rejected="false">
+        <rabbit:listener ref = "receiver" method = "onMessage" queues = "TEST_BUSINESS_QUEUE" />
+    </rabbit:listener-container>
+</beans>
