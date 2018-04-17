@@ -11,10 +11,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext-mq.xml");
-		Sender sender = (Sender) ctx.getBean("sender");
-		sender.send();
+//		Sender sender = (Sender) ctx.getBean("sender");
+//		sender.send();
+		ExpiredSender expiredSender = ctx.getBean("expiredSender", ExpiredSender.class);
+		expiredSender.send();
 	}
-
 }

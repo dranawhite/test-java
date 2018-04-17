@@ -35,6 +35,7 @@
         <rabbit:queue-arguments>
             <entry key="x-dead-letter-exchange" value="TEST_REQUEUE_EXCHANGE" />
             <entry key="x-dead-letter-routing-key" value="TEST_REQUEUE_ROUTE_KEY" />
+            <entry key="x-message-ttl" value-type="java.lang.Long" value="10000" />
         </rabbit:queue-arguments>
     </rabbit:queue>
     <rabbit:direct-exchange name = "TEST_RETRY_EXCHANGE">
@@ -66,6 +67,7 @@
     <!-- 定义Listener -->
     <bean id = "receiver" class = "com.dranawhite.xmlamqp.Receiver" />
     <bean id = "sender" class = "com.dranawhite.xmlamqp.Sender" />
+    <bean id = "expiredSender" class="com.dranawhite.xmlamqp.ExpiredSender" />
 
     <!-- 定义ConsumerListener -->
     <rabbit:listener-container connection-factory = "connectionFactory" concurrency = "4" max-concurrency = "16"

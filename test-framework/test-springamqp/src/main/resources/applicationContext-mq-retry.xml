@@ -66,6 +66,7 @@
     <!-- 定义Listener -->
     <bean id = "receiver" class = "com.dranawhite.xmlamqp.Receiver" />
     <bean id = "sender" class = "com.dranawhite.xmlamqp.Sender" />
+    <bean id = "expiredSender" class="com.dranawhite.xmlamqp.ExpiredSender" />
 
     <!-- 定义ConsumerListener -->
     <rabbit:listener-container connection-factory = "connectionFactory" concurrency = "4" max-concurrency = "16"
