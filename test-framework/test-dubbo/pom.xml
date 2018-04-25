@@ -27,5 +27,10 @@
             <artifactId>zkclient</artifactId>
             <version>0.7</version>
         </dependency>
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 </project>
